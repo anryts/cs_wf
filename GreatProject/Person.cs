@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Person
+    abstract class Person
     {
         private string name_of_person;
         private uint age_of_person;
@@ -35,7 +35,7 @@ namespace GreatProject
             Age_of_person = age;
         }
 
-        public void Print()
+        public virtual void Print()
         {
             Console.WriteLine($"Ім'я:{Name_of_person}\nВік:{Age_of_person}");
         }

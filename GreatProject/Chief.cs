@@ -8,6 +8,9 @@ namespace GreatProject
 {
     class Chief : Person
     {
+      public Chief(string name, uint age) :base()
+        {
 
+        }
     }
 }

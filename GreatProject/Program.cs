@@ -17,12 +17,7 @@ namespace GreatProject
         
         static void Main()
         {
-            warehouse Bob = new warehouse("Apteka", 5, 6);
-            Food bob = new Food("pizza", 13,"09/10/2021");
-            if(bob.Fresh_or_not())
-            {
-                Console.WriteLine("Yes you are right!");
-            }
+            Item A = new Electronics();
            // Bob.Print();
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

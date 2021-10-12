@@ -8,9 +8,9 @@ namespace GreatProject
 {
     abstract class Person
     {
-        private string name_of_person;
-        private uint age_of_person;
-
+        protected string name_of_person;
+        protected uint age_of_person;
+       
         public uint Age_of_person
         {
             get { return age_of_person; }

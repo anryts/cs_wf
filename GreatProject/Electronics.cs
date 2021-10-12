@@ -8,5 +8,9 @@ namespace GreatProject
 {
     class Electronics : Item
     {
+      public Electronics() :base()
+        {
+
+        }
     }
 }

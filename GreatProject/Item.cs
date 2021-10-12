@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Item
+   abstract class Item
     {
-        
-        private int price;
-
+      
+        protected int price;
+        protected string name;
         public int Price
         {
             get { return price; }
             set { price = value; }
         }
-        private string name;
+       
 
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
-
 
         public Item ()
         {
@@ -38,7 +36,7 @@ namespace GreatProject
             Name = name;
         }
 
-        public void Print()
+        public virtual void Print()
         {
             Console.WriteLine($"Назва товару:{Name}\nЦіна товару:{Price}");
         }

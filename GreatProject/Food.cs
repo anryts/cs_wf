@@ -30,9 +30,15 @@ namespace GreatProject
             return false;
         }
 
-        public override void Print()
+
+        public override int price_of_item()
         {
-            base.Print();
+            return 100;// *() тут треба дописать функцію ,яка буде розраховувати термін придатності у інт(чим більше це значення, тим буде менша сплата за зберігання).
+        }
+
+        public override string Print_Info()
+        {
+            return $"{price_of_item()}";
         }
     }
 }

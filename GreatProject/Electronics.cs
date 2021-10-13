@@ -8,9 +8,15 @@ namespace GreatProject
 {
     class Electronics : Item
     {
-      public Electronics() :base()
+        public Electronics() : base()
         {
 
         }
+        
+            public override int price_of_item()
+        {
+            return base.price_of_item();
+        }
     }
+    
 }

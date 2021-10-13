@@ -8,9 +8,12 @@ namespace GreatProject
 {
     class Chief : Person
     {
+      
       public Chief() : base()
         {
 
         }
+
+
     }
 }

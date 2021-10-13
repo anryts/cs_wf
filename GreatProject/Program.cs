@@ -17,11 +17,10 @@ namespace GreatProject
         
         static void Main()
         {
-            Item A = new Electronics();
-           // Bob.Print();
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+          
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new OurWarehouse());
         }
     }
 }

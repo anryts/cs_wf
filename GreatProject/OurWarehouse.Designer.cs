@@ -1,7 +1,7 @@
 ﻿
 namespace GreatProject
 {
-    partial class Form1
+    partial class OurWarehouse
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -42,14 +42,15 @@ namespace GreatProject
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // OurWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(613, 450);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "OurWarehouse";
+            this.Text = "OurWarehouse";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

@@ -9,15 +9,18 @@ namespace GreatProject
    abstract class Item
     {
       
-        protected int price;
+        //protected int price;
         protected string name;
-        public int Price
+        //public int Price
+        //{
+        //    get { return price; }
+        //    set { price = value; }
+        //}
+       public virtual int price_of_item()
         {
-            get { return price; }
-            set { price = value; }
+            return 10;
         }
-       
-
+        
         public string Name
         {
             get { return name; }
@@ -26,19 +29,19 @@ namespace GreatProject
 
         public Item ()
         {
-            Price = 0;
+            //Price = 0;
             Name = "Unknown";
         }
 
         public Item ( string name,int price)
         {
-            Price = price;
+            //Price = price;
             Name = name;
         }
 
-        public virtual void Print()
+        public virtual string Print_Info()
         {
-            Console.WriteLine($"Назва товару:{Name}\nЦіна товару:{Price}");
+            return $"{Name},{price_of_item()}";
         }
     }
 }

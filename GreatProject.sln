@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatProject", "GreatProject\GreatProject.csproj", "{8D43DE9B-56FA-48BE-BDB5-9F751D15FF16}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{04E693F6-3801-427B-979C-78A233E33ED2}"
+	ProjectSection(SolutionItems) = preProject
+		D:\downolad\7830819_warehouse_cart_packages_icon.png = D:\downolad\7830819_warehouse_cart_packages_icon.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

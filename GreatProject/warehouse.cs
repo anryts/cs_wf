@@ -9,8 +9,34 @@ namespace GreatProject
     class warehouse
     {
        private string name_of_warehouse;
-       
-   
+
+       public class warehouse_for_food: warehouse 
+        {
+           
+
+            public List<Food> list_of_food ;
+
+          
+            int temperatury_in_warehouse;
+
+            
+
+            public warehouse_for_food()
+            {             
+                list_of_food = new List<Food>();
+                int temperatury_in_warehouse = 0;
+            }
+            public void Print_Info()
+            {
+                foreach(Food element in list_of_food)
+                    {
+                    Console.WriteLine(element.Print_Info());
+                      }
+            }
+        }
+
+
+
         public string Name_of_warehouse
         {
             set
@@ -60,6 +86,7 @@ namespace GreatProject
             }
         }
 
+      
 
         public warehouse()
         {
@@ -68,11 +95,14 @@ namespace GreatProject
             current_number_of_items = 0;
         }
         public warehouse(string name, int max_number, int current_number)
-        {
+        {         
             Name_of_warehouse = name;
             Max_number_of_items = max_number;
-            Current_number_of_items = current_number; 
+            Current_number_of_items = current_number;
+            
         }
+
+        
 
         public void Print()
         {

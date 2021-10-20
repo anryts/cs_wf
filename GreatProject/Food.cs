@@ -15,7 +15,10 @@ namespace GreatProject
             set { expiration_date = value; }
         }
 
-
+        public Food() : base()
+        {
+            
+        }
         public Food( string name, int price,string expiration_date) : base( name, price)
         {
             Expiration_date = expiration_date;

@@ -12,9 +12,11 @@ namespace GreatProject
 {
     public partial class OurWarehouse : Form
     {
+        string type_item;
         public OurWarehouse()
         {
             InitializeComponent();
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -22,31 +24,40 @@ namespace GreatProject
 
         }
 
-        public void go_to_second_form_Click_1(object sender, EventArgs e)
+        public void go_to_exit_form_Click_1(object sender, EventArgs e)
         {
-            FoodWarehouse temp = new FoodWarehouse();
-            temp.Show();
-            //this.Close();
+            this.Close();
         }
-
-        private void List_Items_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-          
-        }
-
-        
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
-                FoodWarehouse temp = new FoodWarehouse();
+                ForUpdates temp = new ForUpdates();
                 temp.Show();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(type_item == "Food")
+            {
+                AddFood temp = new AddFood();
+                temp.Show();
+            }
+            else
+            {
+                ForUpdates temp = new ForUpdates();
+                temp.Show();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type_item = comboBox1.SelectedItem.ToString();
         }
     }
 }

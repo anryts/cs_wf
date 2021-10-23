@@ -21,7 +21,17 @@ namespace GreatProject
         public string Name_of_person
         {
             get { return name_of_person; }
-            set { name_of_person = value; }
+            set {
+
+                if (value.Length != 0)
+                {
+                    name_of_person = value;
+                }
+                else
+                {
+                    throw new ZeroLenghtException("Lenght can not = 0");
+                }
+            }
         }
 
        public Person()

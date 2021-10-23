@@ -77,6 +77,7 @@
     <Compile Include="ForUpdates.Designer.cs">
       <DependentUpon>ForUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="OurException.cs" />
     <Compile Include="OurWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>

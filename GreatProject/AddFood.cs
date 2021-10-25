@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GreatProject
 {
@@ -56,7 +57,8 @@ namespace GreatProject
             if (value.Name.Length != 0 && value.Expiration_date.Length != 0)
             {
                 list_of_value.Add(value);
-                MessageBox.Show("Added!");
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  ExpDate:{value.Expiration_date}");
+                MessageBox.Show($"Added!\n{value.Print_Info()}");
                
             }
            // value.
@@ -66,10 +68,11 @@ namespace GreatProject
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(Food iterator in list_of_value)
-            {
-                iterator.Print_Info();
-            }
+        }
+
+        private void write_in_file_click(object sender, EventArgs e)
+        {
+          //чи нада воно,
         }
     }
 }

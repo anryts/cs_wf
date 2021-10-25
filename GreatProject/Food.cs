@@ -41,7 +41,7 @@ namespace GreatProject
 
         public override string Print_Info()
         {
-            return $"{price_of_item()}";
+            return $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{Expiration_date}";
         }
     }
 }

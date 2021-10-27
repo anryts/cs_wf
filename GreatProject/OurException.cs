@@ -25,6 +25,19 @@ namespace GreatProject
         }
     }
 
+    class CapacityException : Exception
+    {
+        public int Value
+        {
+            get;
+        }
+
+        public CapacityException(string message, int value) :base(message)
+        {
+            Value = value;
+        }
+    }
+
     class ExpirationDateException : Exception
     {
         /*
@@ -44,4 +57,5 @@ namespace GreatProject
 
         }
     }
+
 }

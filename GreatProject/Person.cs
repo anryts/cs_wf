@@ -10,7 +10,7 @@ namespace GreatProject
     {
         protected string name_of_person;
         protected uint age_of_person;
-       
+        readonly int id_person;                //не знаю, на скільки буде доречно давати кожному айді, може при пошуці буде зручно 
         public uint Age_of_person
         {
             get { return age_of_person; }

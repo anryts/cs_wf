@@ -33,10 +33,11 @@ namespace GreatProject
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0)
-            {
-                value.Name = textBox1.Text;
-            }
+            
+            //if (textBox1.Text.Length != 0)
+            //{
+            //    value.Name = textBox1.Text;
+            //}
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -46,16 +47,18 @@ namespace GreatProject
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox3.Text.Length != 0)
-            {
-                value.Expiration_date = textBox3.Text;
-            }
+            //if (textBox3.Text.Length != 0)
+            //{
+            //    value.Expiration_date = textBox3.Text;
+            //}
         }
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            if (value.Name.Length != 0 && value.Expiration_date.Length != 0)
+            if (textBox1.Text.Length != 0 && textBox3.Text.Length != 0)
             {
+                value.Name = textBox1.Text;
+                value.Expiration_date = textBox3.Text;
                 list_of_value.Add(value);
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  ExpDate:{value.Expiration_date}");
                 MessageBox.Show($"Added!\n{value.Print_Info()}");
@@ -73,6 +76,11 @@ namespace GreatProject
         private void write_in_file_click(object sender, EventArgs e)
         {
           //чи нада воно,
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

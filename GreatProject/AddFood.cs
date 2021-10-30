@@ -18,7 +18,7 @@ namespace GreatProject
         public AddFood()
         {
             InitializeComponent();
-                   
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -55,17 +55,17 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0 && textBox3.Text.Length != 0)
+            if (textBox1.Text.Length != 0 )
             {
                 value.Name = textBox1.Text;
-                value.Expiration_date = textBox3.Text;
+                value.Expiration_date = dateTimePicker1.Value;
                 list_of_value.Add(value);
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  ExpDate:{value.Expiration_date}");
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
                 MessageBox.Show($"Added!\n{value.Print_Info()}");
                
             }
            // value.
-            textBox3.Clear();
+          
             textBox1.Clear();
         }
 
@@ -80,7 +80,8 @@ namespace GreatProject
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            //dateTimePicker1.Format = DateTimePickerFormat.Short;
+            //DateTime? selectedDate = dateTimePicker1.Value;      
         }
     }
 }

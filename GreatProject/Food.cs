@@ -8,8 +8,8 @@ namespace GreatProject
 {
     class Food : Item
     {
-        private string expiration_date;
-        public string Expiration_date
+        private DateTime expiration_date;
+        public DateTime Expiration_date
         {
             get { return expiration_date; }
             set { expiration_date = value; }
@@ -19,14 +19,14 @@ namespace GreatProject
         {
             
         }
-        public Food( string name, int price,string expiration_date) : base( name, price)
+        public Food( string name, int price,DateTime expiration_date) : base( name, price)
         {
             Expiration_date = expiration_date;
         }
 
         public bool Fresh_or_not()
         {
-            if(String.Compare(Expiration_date,DateTime.Today.ToString("d"))>=0) //01/10/2006
+            if((Expiration_date.Equals(DateTime.Today))) //01/10/2006
             {
                 return true;
             }
@@ -36,12 +36,13 @@ namespace GreatProject
 
         public override int price_of_item()
         {
-            return 100;// *() тут треба дописать функцію ,яка буде розраховувати термін придатності у інт(чим більше це значення, тим буде менша сплата за зберігання).
+           TimeSpan result =  (Expiration_date-DateTime.Today);
+            return 100*result.Days;
         }
 
         public override string Print_Info()
         {
-            return $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{Expiration_date}";
+            return $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{String.Format("{0:MM/dd/yyyy}", Expiration_date)}";
         }
     }
 }

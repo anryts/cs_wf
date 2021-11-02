@@ -43,7 +43,7 @@ namespace GreatProject
             Name = "Unknown";
         }
 
-        public Item ( string name,int price)
+        public Item ( string name)
         {
             //Price = price;
             Name = name;

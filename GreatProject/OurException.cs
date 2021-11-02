@@ -40,9 +40,15 @@ namespace GreatProject
 
     class ExpirationDateException : Exception
     {
-        /*
-         Треба ще переробити поле ExpirationDate.
-         */
+        public ExpirationDateException(string message) : base(message)
+        {
+
+        }
+
+        public ExpirationDateException(string message, Exception InnerException) : base(message)
+        {
+
+        }
     }
 
     class AgeException : Exception

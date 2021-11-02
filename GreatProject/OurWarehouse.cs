@@ -38,9 +38,15 @@ namespace GreatProject
 
         private void button2_Click(object sender, EventArgs e)
         {
+          
             if(type_item == "Food")
             {
                 AddFood temp = new AddFood();
+                temp.Show();
+            }
+            else if(type_item == "Materials")
+            {
+                AddMaterials temp = new AddMaterials();
                 temp.Show();
             }
             else
@@ -72,7 +78,10 @@ namespace GreatProject
 
         private void button_for_Chief_Click(object sender, EventArgs e)
         {
-
+            if(textBox1.Text == "012345678")
+            {
+                MessageBox.Show("Welcome!");
+            }
         }
     }
 }

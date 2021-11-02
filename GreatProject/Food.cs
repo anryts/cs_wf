@@ -12,21 +12,31 @@ namespace GreatProject
         public DateTime Expiration_date
         {
             get { return expiration_date; }
-            set { expiration_date = value; }
+            set
+            {
+                if (Fresh_or_not(value))
+                {
+                    expiration_date = value;
+                }
+                else
+                {
+                    throw new ExpirationDateException("Invalid expiration date!");
+                }
+            }
         }
 
         public Food() : base()
         {
             
         }
-        public Food( string name, int price,DateTime expiration_date) : base( name, price)
+        public Food( string name,DateTime expiration_date) : base( name)
         {
             Expiration_date = expiration_date;
         }
 
-        public bool Fresh_or_not()
+        static public bool Fresh_or_not(DateTime value)
         {
-            if((Expiration_date.Equals(DateTime.Today))) //01/10/2006
+            if(value.CompareTo(DateTime.Now)>=0) 
             {
                 return true;
             }

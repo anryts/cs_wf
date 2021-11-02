@@ -8,8 +8,10 @@ namespace GreatProject
 {
     class Materials : Item
     {
-        private int capacity;                   //об'єм 
-        private int weight;                     // вага
+        private int capacity;                           //об'єм 
+        private int weight;                            // вага
+        readonly string type_of_materials;
+
 
         public int Capacity
         {
@@ -25,8 +27,24 @@ namespace GreatProject
                 }
             }
         }
-
+        public string Type_of_materials
+        {
+            get { return type_of_materials; }
+        }
        
+
+        public Materials() :base()
+        {
+
+        }
+
+        public Materials(string name, int capacity, int weight, string type_of_materials)
+        {
+            Name = name;
+            Capacity = capacity;
+            Weight = weight;
+            this.type_of_materials = type_of_materials;
+        }
 
         public int Weight
         {
@@ -43,6 +61,11 @@ namespace GreatProject
             }
             else
                 return Capacity * Weight * 2;
+        }
+
+        public override string Print_Info()
+        {
+            return $"Name:{Name} Capacity:{Capacity}  Weight:{Weight} Type:{Type_of_materials}";
         }
     }
 }

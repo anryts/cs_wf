@@ -20,7 +20,7 @@ namespace GreatProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new OurWarehouse());
-           
+            warehouse BigDream = new warehouse("Big Dream", 100);
             
         }
     }

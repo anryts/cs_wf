@@ -19,7 +19,6 @@ namespace GreatProject
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,11 +72,9 @@ namespace GreatProject
                 }
                 catch (ExpirationDateException ex)
                 {
-                    MessageBox.Show($"{ex.}\n{ex.Message}");
+                    MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Temp_for_exception.Name}\n{ex.Message}");
                     return;
                 }
-           
-                    
                     list_of_value.Add(value);
                     listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
                     MessageBox.Show($"Added!\n{value.Print_Info()}");

@@ -42,15 +42,13 @@ namespace GreatProject
     {
         public Food Temp_for_exception
         {
-            set
-            {
-                Food temp_for_exception = new Food(value, value);
-            }
+            get;
+        
             //get;
         }
         public ExpirationDateException(string message, Food temp) : base(message)
         {
-             
+             Temp_for_exception = temp;
         }
 
         public ExpirationDateException(string message, Exception InnerException) : base(message)

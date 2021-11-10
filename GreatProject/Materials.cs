@@ -10,7 +10,7 @@ namespace GreatProject
     {
         private int capacity;                           //об'єм 
         private int weight;                            // вага
-        readonly string type_of_materials;                  
+        string type_of_materials;                  
 
 
         public int Capacity
@@ -30,6 +30,7 @@ namespace GreatProject
         public string Type_of_materials
         {
             get { return type_of_materials; }
+            set { Type_of_materials = value; }
         }
        
 
@@ -38,12 +39,12 @@ namespace GreatProject
 
         }
 
-        public Materials(string name, int capacity, int weight, string type_of_materials)
+        public Materials(string name, int capacity, int weight)
         {
             Name = name;
             Capacity = capacity;
             Weight = weight;
-            this.type_of_materials = type_of_materials;
+            
         }
 
         public int Weight

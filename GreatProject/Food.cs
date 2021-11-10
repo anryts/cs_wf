@@ -9,19 +9,19 @@ namespace GreatProject
     class Food : Item
     {
         private DateTime expiration_date;
-        public DateTime Expiration_date
+       public DateTime Expiration_date
         {
             get { return expiration_date; }
             set
             {
-                if (Fresh_or_not(value))
-                {
-                    expiration_date = value;
-                }
-                else
-                {
-                    throw new ExpirationDateException("Invalid expiration date!");
-                }
+                 if (Fresh_or_not(value))
+                    {
+                        expiration_date = value;
+                    }
+                    else
+                    {
+                        throw new ExpirationDateException("Invalid expiration date!",this);
+                    }             
             }
         }
 

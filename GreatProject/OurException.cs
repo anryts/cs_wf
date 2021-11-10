@@ -40,9 +40,17 @@ namespace GreatProject
 
     class ExpirationDateException : Exception
     {
-        public ExpirationDateException(string message) : base(message)
+        public Food Temp_for_exception
         {
-
+            set
+            {
+                Food temp_for_exception = new Food(value, value);
+            }
+            //get;
+        }
+        public ExpirationDateException(string message, Food temp) : base(message)
+        {
+             
         }
 
         public ExpirationDateException(string message, Exception InnerException) : base(message)

@@ -26,6 +26,7 @@ namespace GreatProject
             get { return name; }
             set {
 
+              
                 if (value.Length != 0)
                 {
                     name = value;
@@ -34,6 +35,8 @@ namespace GreatProject
                 {
                     throw new ZeroLenghtException("Lenght can not = 0","unknow");
                 }
+                      
+                
             }
         }
 

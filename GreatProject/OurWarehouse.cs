@@ -78,7 +78,7 @@ namespace GreatProject
 
         private void button_for_Chief_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "012345678")
+            if(textBox1.Text == "0123456789")
             {
                 MessageBox.Show("Welcome!");
             }

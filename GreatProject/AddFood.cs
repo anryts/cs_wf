@@ -13,12 +13,13 @@ namespace GreatProject
 {
     public partial class AddFood : Form
     {
-       // Food value = new Food();
+         Food value = new Food();
         List<Food> list_of_value = new List<Food>(); 
         public AddFood()
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Short;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,11 +34,8 @@ namespace GreatProject
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-            //if (textBox1.Text.Length != 0)
-            //{
-            //    value.Name = textBox1.Text;
-            //}
+
+           
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -55,14 +53,36 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0 )
-            {
-                Food value = new Food(textBox1.Text, dateTimePicker1.Value);
-                list_of_value.Add(value);
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-                MessageBox.Show($"Added!\n{value.Print_Info()}");
-               
-            }
+
+            //Food value = new Food(textBox1.Text, dateTimePicker1.Value);                                
+            //catch (ExpirationDateException ex)               
+            //MessageBox.Show(ex.Message);         
+               try
+                {
+                    value.Name = textBox1.Text;
+                }
+                catch (ZeroLenghtException ex)
+                {
+                    MessageBox.Show($"{ex.Message}");
+                    return;
+                }
+
+                try
+                {
+                    value.Expiration_date = dateTimePicker1.Value;
+                }
+                catch (ExpirationDateException ex)
+                {
+                    MessageBox.Show($"{ex.}\n{ex.Message}");
+                    return;
+                }
+           
+                    
+                    list_of_value.Add(value);
+                    listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+                    MessageBox.Show($"Added!\n{value.Print_Info()}");
+            
+            
            // value.
           
             textBox1.Clear();
@@ -80,7 +100,8 @@ namespace GreatProject
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             //dateTimePicker1.Format = DateTimePickerFormat.Short;
-            //DateTime? selectedDate = dateTimePicker1.Value;      
+            //DateTime? selectedDate = dateTimePicker1.Value;
+           
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GreatProject
     {
         private int capacity;                           //об'єм 
         private int weight;                            // вага
-        readonly string type_of_materials;
+        readonly string type_of_materials;                  
 
 
         public int Capacity

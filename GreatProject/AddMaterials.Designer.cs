@@ -128,10 +128,10 @@ namespace GreatProject
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(891, 107);
+            this.listBox1.Location = new System.Drawing.Point(601, 42);
             this.listBox1.Margin = new System.Windows.Forms.Padding(6);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(492, 268);
+            this.listBox1.Size = new System.Drawing.Size(688, 388);
             this.listBox1.TabIndex = 9;
             // 
             // button1
@@ -147,10 +147,10 @@ namespace GreatProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(601, 532);
+            this.button2.Location = new System.Drawing.Point(527, 513);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 42);
+            this.button2.Size = new System.Drawing.Size(180, 60);
             this.button2.TabIndex = 11;
             this.button2.Text = "Home";
             this.button2.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@ namespace GreatProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 831);
+            this.ClientSize = new System.Drawing.Size(1550, 831);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);

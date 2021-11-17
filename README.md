@@ -5,4 +5,4 @@
 Клас Person, є батьківським для \о класу Chief, Worker.
 Клас Chief має у собі список з Worker.
 Клас Item, є батьківським для класу: Food, Electronics та Materials.
-Клас warehouse, є батьківським для warehouse_for_food (вже є), warehouse_for_materials(?), warehouse_for_electricks(?).
+Клас OurException, містить похідні класи від Exception:

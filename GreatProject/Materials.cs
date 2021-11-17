@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Materials : Item
+    class Materials : Item, IComparable<Materials>
     {
         private int capacity;                           //об'єм 
         private int weight;                            // вага
@@ -17,7 +17,7 @@ namespace GreatProject
         {
             get { return capacity; }
             set {
-                if (capacity > 0)
+                if (value > 0)
                 {
                     capacity = value;
                 }
@@ -30,7 +30,7 @@ namespace GreatProject
         public string Type_of_materials
         {
             get { return type_of_materials; }
-            set { Type_of_materials = value; }
+            set { type_of_materials = value; }
         }
        
 
@@ -38,6 +38,7 @@ namespace GreatProject
         {
 
         }
+
 
         public Materials(string name, int capacity, int weight)
         {
@@ -53,6 +54,18 @@ namespace GreatProject
             set { weight = value; }
         }
 
+        public int CompareTo(Materials ex)                  //порівнюю за ціною
+        {
+            if (this.price_of_item()>ex.price_of_item())
+            {
+                return 1;
+            }
+            else if(this.price_of_item() < ex.price_of_item())
+            {
+                return -1;
+            }
+            return 0;
+        }
 
         public double price_of_Materials()
         {

@@ -13,6 +13,7 @@ namespace GreatProject
     public partial class AddMaterials : Form
     {
         Materials value = new Materials();
+       List<Materials> list_of_value  = new();
         public AddMaterials()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace GreatProject
 
                 try
                 {
-                    value.Capacity = Convert.ToInt32(textBox_for_name.Text);
+                    value.Capacity = Convert.ToInt32(textBox_for_capacity.Text);
                 }
 
                 catch (InvalidCastException ex)
@@ -86,7 +87,7 @@ namespace GreatProject
                     return;
                 }
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
-                //list_of_value.Add(value);
+                list_of_value.Add(value);
                 //listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
                 MessageBox.Show($"Added!\n{value.Print_Info()}");
 
@@ -98,6 +99,16 @@ namespace GreatProject
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_for_sort_Click(object sender, EventArgs e)
         {
 
         }

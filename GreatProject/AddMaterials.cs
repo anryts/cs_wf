@@ -12,8 +12,8 @@ namespace GreatProject
 {
     public partial class AddMaterials : Form
     {
-        Materials value = new Materials();
-      // List<Materials> list_of_value  = new();
+        Materials value = new ();
+       List<Materials> list_of_value  = new();
         public AddMaterials()
         {
             InitializeComponent();
@@ -87,8 +87,8 @@ namespace GreatProject
                     return;
                 }
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
-                //list_of_value.Add(value);
-                //listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+                list_of_value.Add(value);
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
                 MessageBox.Show($"Added!\n{value.Print_Info()}");
 
 
@@ -110,7 +110,13 @@ namespace GreatProject
 
         private void button_for_sort_Click(object sender, EventArgs e)
         {
-
+            
+            list_of_value.Sort( new Compare_Materials());
+            foreach(Materials temp in list_of_value)
+            {
+                listBox1.Items.Add($"Name:{temp.Name}  Price:{temp.price_of_Materials()}  Type:{temp.Type_of_materials}");
+            }
+           
         }
     }
 }

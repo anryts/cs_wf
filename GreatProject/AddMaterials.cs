@@ -12,7 +12,7 @@ namespace GreatProject
 {
     public partial class AddMaterials : Form
     {
-        Materials value = new ();
+        
        List<Materials> list_of_value  = new();
         public AddMaterials()
         {
@@ -42,8 +42,8 @@ namespace GreatProject
 
         private void button_for_add_Click(object sender, EventArgs e)
         {
-           
-                try
+            Materials value = new();
+            try
                 {
                     value.Name = textBox_for_name.Text;
                 }
@@ -74,11 +74,11 @@ namespace GreatProject
                     value.Weight = Convert.ToInt32(textBox_for_weight.Text);
                 }
 
-            catch (InvalidCastException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                 catch (InvalidCastException ex)
+                {
+                 MessageBox.Show(ex.Message);
+                  return;
+                }
 
             catch (Exception ex)
 
@@ -90,9 +90,6 @@ namespace GreatProject
                 list_of_value.Add(value);
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
                 MessageBox.Show($"Added!\n{value.Print_Info()}");
-
-
-                // value.
 
                 textBox_for_name.Clear();
            
@@ -112,11 +109,10 @@ namespace GreatProject
         {
             
             list_of_value.Sort( new Compare_Materials());
-            foreach(Materials temp in list_of_value)
+            foreach(Materials value in list_of_value)
             {
-                listBox1.Items.Add($"Name:{temp.Name}  Price:{temp.price_of_Materials()}  Type:{temp.Type_of_materials}");
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
             }
-           
         }
     }
 }

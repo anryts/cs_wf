@@ -54,6 +54,10 @@ namespace GreatProject
             set { weight = value; }
         }
 
+
+       
+
+
         public int CompareTo(Materials ex)                  //порівнюю за ціною
         {
             if (this.price_of_item()>ex.price_of_item())

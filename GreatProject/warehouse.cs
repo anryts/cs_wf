@@ -10,33 +10,6 @@ namespace GreatProject
     {
        private string name_of_warehouse;
 
-       public class warehouse_for_food: warehouse 
-        {
-           
-
-            public List<Food> list_of_food ;
-
-          
-            int temperatury_in_warehouse;
-
-            
-
-            public  warehouse_for_food()
-            {             
-                list_of_food = new List<Food>();
-                int temperatury_in_warehouse = 0;
-            }
-            public void Print_Info()
-            {
-                foreach(Food element in list_of_food)
-                    {
-                    Console.WriteLine(element.Print_Info());
-                    }
-            }
-        }
-
-
-
         public string Name_of_warehouse
         {
             set
@@ -65,6 +38,14 @@ namespace GreatProject
         }
 
         private int current_number_of_items;
+
+        public warehouse_for_food Warehouse_for_food
+        {
+            set
+            {
+                Warehouse_for_food = value;
+            }
+        }
 
         public int Current_number_of_items
         {

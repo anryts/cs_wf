@@ -9,14 +9,10 @@ namespace GreatProject
     abstract class Person
     {
         protected string name_of_person;
-        protected uint age_of_person;
-        readonly int id_person;                //не знаю, на скільки буде доречно давати кожному айді, може при пошуці буде зручно 
-        public uint Age_of_person
-        {
-            get { return age_of_person; }
-            set { age_of_person = value; }
-        }
 
+        readonly string id_person;
+
+        Random rd = new();
 
         public string Name_of_person
         {
@@ -37,17 +33,17 @@ namespace GreatProject
        public Person()
         {
             name_of_person = "unknown";
-            age_of_person = 0;
+           
         }
-        Person (string name, uint age)
+        Person (string name, string id_person)
         {
             Name_of_person = name;
-            Age_of_person = age;
+            id_person = Convert.ToString(rd.Next(100000,999999));
         }
 
         public virtual void Print()
         {
-            Console.WriteLine($"Ім'я:{Name_of_person}\nВік:{Age_of_person}");
+            Console.WriteLine($"Ім'я:{Name_of_person}\nID:{id_person}");
         }
     }
 }

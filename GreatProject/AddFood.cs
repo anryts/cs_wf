@@ -13,8 +13,11 @@ namespace GreatProject
 {
     public partial class AddFood : Form
     {
-         Food value = new Food();
-        List<Food> list_of_value = new List<Food>(); 
+       
+        Food value = new Food();
+        List<Food> list_of_value = new List<Food>();
+
+       
         public AddFood()
         {
             InitializeComponent();

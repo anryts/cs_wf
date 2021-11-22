@@ -93,6 +93,8 @@
     <Compile Include="ForUpdates.Designer.cs">
       <DependentUpon>ForUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="mini_warehouses.cs" />
     <Compile Include="OurException.cs" />
     <Compile Include="OurWarehouse.cs">
       <SubType>Form</SubType>

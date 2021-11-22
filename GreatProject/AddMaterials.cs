@@ -107,7 +107,8 @@ namespace GreatProject
 
         private void button_for_sort_Click(object sender, EventArgs e)
         {
-            
+
+            listBox1.Items.Clear();
             list_of_value.Sort( new Compare_Materials());
             foreach(Materials value in list_of_value)
             {

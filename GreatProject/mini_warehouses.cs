@@ -13,7 +13,7 @@ namespace GreatProject
         public List<Food> list_of_food;
         public List<Food> List_of_food
         {
-            set { List_of_food += value; }                  //нада дописать перегрузку оператора +=
+            //set { List_of_food += value; }                  //нада дописать перегрузку оператора +=
             get { return List_of_food; }
         }
         

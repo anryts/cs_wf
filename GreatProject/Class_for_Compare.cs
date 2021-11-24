@@ -23,7 +23,6 @@ namespace GreatProject
             return 0;
         }
     }
-
     class Compare_Food : IComparer<Food>
     {
         public int Compare(Food p1, Food p2)

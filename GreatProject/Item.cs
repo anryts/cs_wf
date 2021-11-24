@@ -8,6 +8,7 @@ namespace GreatProject
 {
    abstract class Item
     {
+
       
         //protected int price;
         protected string name;

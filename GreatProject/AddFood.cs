@@ -68,7 +68,6 @@ namespace GreatProject
                     MessageBox.Show($"{ex.Message}");
                     return;
                 }
-
                 try
                 {
                     value.Expiration_date = dateTimePicker1.Value;
@@ -81,10 +80,8 @@ namespace GreatProject
                     list_of_value.Add(value);
                     listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
                     MessageBox.Show($"Added!\n{value.Print_Info()}");
-            
-            
-           // value.
-          
+           
+           // value.        
             textBox1.Clear();
         }
 

@@ -54,5 +54,6 @@ namespace GreatProject
         {
             return $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{String.Format("{0:MM/dd/yyyy}", Expiration_date)}";
         }
+      
     }
 }

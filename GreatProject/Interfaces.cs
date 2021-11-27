@@ -8,7 +8,8 @@ namespace GreatProject
 {
     interface IPrintable
     {
-        string Print(IPrintable some_thing);
+        string Print(object some_thing);
+
     }
 
     interface IWritable
@@ -18,8 +19,7 @@ namespace GreatProject
 
     class Item_ShowOnly_Name : IPrintable                   //приклад
     {
-        
-        public string Print(IPrintable some_thing)
+        public string Print(object some_thing)
         {
             Item item = some_thing as Item;
             return $"{item.Name}";

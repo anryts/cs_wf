@@ -14,6 +14,7 @@ namespace GreatProject
     {
         
        List<Materials> list_of_value  = new();
+       Item_ShowOnly_Name temp = new();
         public AddMaterials()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace GreatProject
         private void button_for_add_Click(object sender, EventArgs e)
         {
             Materials value = new();
-            try
+                try
                 {
                     value.Name = textBox_for_name.Text;
                 }
@@ -80,7 +81,7 @@ namespace GreatProject
                   return;
                 }
 
-            catch (Exception ex)
+                 catch (Exception ex)
 
                 {
                     MessageBox.Show($"Помилка :{ex.Message}");
@@ -89,9 +90,10 @@ namespace GreatProject
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
                 list_of_value.Add(value);
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
-                MessageBox.Show($"Added!\n{value.Print_Info()}");
+              //  MessageBox.Show($"Added!\n{value.Print_Info()}");
+                MessageBox.Show($"Added!\n{temp.Print(value)}");
 
-                textBox_for_name.Clear();
+            textBox_for_name.Clear();
            
         }
 
@@ -107,9 +109,8 @@ namespace GreatProject
 
         private void button_for_sort_Click(object sender, EventArgs e)
         {
-
             listBox1.Items.Clear();
-            list_of_value.Sort( new Compare_Materials());
+            list_of_value.Sort(new Compare_Materials());
             foreach(Materials value in list_of_value)
             {
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");

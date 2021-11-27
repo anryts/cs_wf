@@ -11,6 +11,11 @@ namespace GreatProject
         string Print(IPrintable some_thing);
     }
 
+    interface IWritable
+    {
+
+    }
+
     class Item_ShowOnly_Name : IPrintable                   //приклад
     {
         

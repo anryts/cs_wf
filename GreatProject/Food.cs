@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Food : Item
+    class Food : Item, IPrintable
     {
         private DateTime expiration_date;
        public DateTime Expiration_date
@@ -54,6 +54,10 @@ namespace GreatProject
         {
             return $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{String.Format("{0:MM/dd/yyyy}", Expiration_date)}";
         }
-      
+
+        string IPrintable.GetData()
+        {
+            return $"Food {price_of_item()} {Name} {String.Format("{0:MM/dd/yyyy}", Expiration_date)}";
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace GreatProject
     {
         
        List<Materials> list_of_value  = new();
-       Item_ShowOnly_Name temp = new();
+     
         public AddMaterials()
         {
             InitializeComponent();
@@ -91,7 +91,7 @@ namespace GreatProject
                 list_of_value.Add(value);
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
               //  MessageBox.Show($"Added!\n{value.Print_Info()}");
-                MessageBox.Show($"Added!\n{temp.Print(value)}");
+                //MessageBox.Show($"Added!\n{value.Print_Info(value)}");
 
             textBox_for_name.Clear();
            

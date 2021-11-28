@@ -1,7 +1,7 @@
 ﻿
 namespace GreatProject
 {
-    partial class OurWarehouse
+    partial class OurWarehouse 
     {
         /// <summary>
         /// Обязательная переменная конструктора.

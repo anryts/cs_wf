@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace GreatProject
 {
 
-    class warehouse_for_food : warehouse
+     class warehouse_for_food : warehouse
     {
 
         public List<Food> list_of_food;
+
         public void Add_to_list_of_food(List<Food> input_list)
         {
             foreach(Food temp in input_list)
@@ -20,7 +21,7 @@ namespace GreatProject
         }
         public List<Food> List_of_food
         {
-            //set { List_of_food += value; }                  //нада дописать перегрузку оператора +=
+            set { this.Add_to_list_of_food(value); }                  
             get { return List_of_food; }
         }
 
@@ -35,7 +36,7 @@ namespace GreatProject
 
         public warehouse_for_food()
         {
-            this.list_of_food = new();
+            list_of_food = new();
             int temperatury_in_warehouse = 0;
 
         }

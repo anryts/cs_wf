@@ -93,6 +93,7 @@
     <Compile Include="ForUpdates.Designer.cs">
       <DependentUpon>ForUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generics_Class.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="mini_warehouses.cs" />
     <Compile Include="OurException.cs" />
@@ -114,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddMaterials.resx">
       <DependentUpon>AddMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiefForm.resx">
+      <DependentUpon>ChiefForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForUpdates.resx">
       <DependentUpon>ForUpdates.cs</DependentUpon>

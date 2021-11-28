@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using GreatProject.Properties;
 namespace GreatProject
 {
+    
     public partial class AddFood : Form
     {
        
         Food value = new Food();
         List<Food> list_of_value = new List<Food>();
-
        
         public AddFood()
         {
+          
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Short;
         }
@@ -55,7 +56,7 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-
+            
             //Food value = new Food(textBox1.Text, dateTimePicker1.Value);                                
             //catch (ExpirationDateException ex)               
             //MessageBox.Show(ex.Message);         
@@ -89,9 +90,9 @@ namespace GreatProject
         {
         }
 
-        private void write_in_file_click(object sender, EventArgs e)
+        private void write_in_main_list_click(object sender, EventArgs e)
         {
-          //чи нада воно
+            Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

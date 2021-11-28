@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace GreatProject
 {
+   
+
     public partial class OurWarehouse : Form
-    {
+    {        
+      //static  warehouse_for_food mini_dream_food = new warehouse_for_food();
+
+      
+
         string type_item;
         public OurWarehouse()
         {
@@ -21,7 +27,7 @@ namespace GreatProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         public void go_to_exit_form_Click_1(object sender, EventArgs e)
@@ -41,6 +47,7 @@ namespace GreatProject
           
             if(type_item == "Food")
             {
+               
                 AddFood temp = new AddFood();
                 temp.Show();
             }
@@ -81,7 +88,15 @@ namespace GreatProject
             if(textBox1.Text == "0123456789")
             {
                 MessageBox.Show("Welcome!");
+                ChiefForm temp = new();
+                temp.Show();
             }
         }
+    }
+
+    static class Date
+    {
+        static warehouse_for_food mini_dream_warehouse = new();
+        static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }
     }
 }

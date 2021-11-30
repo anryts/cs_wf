@@ -116,6 +116,11 @@ namespace GreatProject
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
             }
         }
+
+        private void button_for_materials(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

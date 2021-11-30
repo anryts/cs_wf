@@ -14,8 +14,7 @@ namespace GreatProject
     
     public partial class AddFood : Form
     {
-       
-        Food value = new Food();
+             
         List<Food> list_of_value = new List<Food>();
        
         public AddFood()
@@ -56,11 +55,13 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            
+
             //Food value = new Food(textBox1.Text, dateTimePicker1.Value);                                
             //catch (ExpirationDateException ex)               
             //MessageBox.Show(ex.Message);         
-               try
+
+            Food value = new();
+            try
                 {
                     value.Name = textBox1.Text;
                 }
@@ -93,6 +94,10 @@ namespace GreatProject
         private void write_in_main_list_click(object sender, EventArgs e)
         {
             Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
+            foreach(Food temp in list_of_value)
+            {
+                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -100,6 +105,16 @@ namespace GreatProject
             //dateTimePicker1.Format = DateTimePickerFormat.Short;
             //DateTime? selectedDate = dateTimePicker1.Value;
            
+        }
+
+        private void button_for_sort_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            list_of_value.Sort(new Compare_Food());
+            foreach (Food value in list_of_value)
+            {
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+            }
         }
     }
 }

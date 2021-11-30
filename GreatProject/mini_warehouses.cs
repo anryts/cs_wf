@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace GreatProject
 {
 
-     class warehouse_for_food : warehouse
+    class warehouse_for_materials : warehouse
+    {
+        public List<Materials> list_of_food;
+    }
+    
+    class warehouse_for_food : warehouse
     {
 
         public List<Food> list_of_food;

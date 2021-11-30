@@ -31,6 +31,7 @@ namespace GreatProject
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button_for_writing_in_file = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -52,11 +53,22 @@ namespace GreatProject
             this.button_for_writing_in_file.UseVisualStyleBackColor = true;
             this.button_for_writing_in_file.Click += new System.EventHandler(this.button_write_in_file_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(693, 316);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 27);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Write logs in file";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_for_logs_writing);
+            // 
             // ChiefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_for_writing_in_file);
             this.Controls.Add(this.listBox1);
             this.Name = "ChiefForm";
@@ -69,5 +81,6 @@ namespace GreatProject
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button_for_writing_in_file;
+        private System.Windows.Forms.Button button1;
     }
 }

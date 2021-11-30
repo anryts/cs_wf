@@ -37,6 +37,7 @@ namespace GreatProject
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button_for_sort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +71,7 @@ namespace GreatProject
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(89, 120);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 25);
             this.button2.TabIndex = 4;
@@ -91,16 +92,16 @@ namespace GreatProject
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(305, 30);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(366, 199);
+            this.listBox1.Size = new System.Drawing.Size(366, 147);
             this.listBox1.TabIndex = 9;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(11, 271);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 32);
             this.button3.TabIndex = 10;
@@ -111,17 +112,29 @@ namespace GreatProject
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(89, 81);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(111, 20);
             this.dateTimePicker1.TabIndex = 11;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button_for_sort
+            // 
+            this.button_for_sort.Location = new System.Drawing.Point(305, 194);
+            this.button_for_sort.Margin = new System.Windows.Forms.Padding(2);
+            this.button_for_sort.Name = "button_for_sort";
+            this.button_for_sort.Size = new System.Drawing.Size(73, 24);
+            this.button_for_sort.TabIndex = 13;
+            this.button_for_sort.Text = "Sort";
+            this.button_for_sort.UseVisualStyleBackColor = true;
+            this.button_for_sort.Click += new System.EventHandler(this.button_for_sort_Click);
             // 
             // AddFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 361);
+            this.Controls.Add(this.button_for_sort);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listBox1);
@@ -147,5 +160,6 @@ namespace GreatProject
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button_for_sort;
     }
 }

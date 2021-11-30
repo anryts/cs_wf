@@ -79,8 +79,11 @@ namespace GreatProject
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-           
+        {         
+            // The password character is an asterisk.
+            textBox1.PasswordChar = '*';
+            // The control will allow no more than 14 characters.
+            textBox1.MaxLength = 14;
         }
 
         private void button_for_Chief_Click(object sender, EventArgs e)
@@ -97,6 +100,17 @@ namespace GreatProject
     static class Date
     {
         static warehouse_for_food mini_dream_warehouse = new();
+
+      // static 
         static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }
+
+        static public Dictionary<string, DateTime> Property_for_dictionary
+        {
+            get { return dictionary_for_logs; }
+        }
+
+        
+
+        static Dictionary<string, DateTime> dictionary_for_logs = new();
     }
 }

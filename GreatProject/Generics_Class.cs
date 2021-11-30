@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Generics_Class <T>
-    {
-        T return_method(Item some_thing)
-        {
+    //class Generics_Class <T>
+    //{
+    //    T return_method(Item some_thing)
+    //    {
             
-            //return 0;
-        }
-    }
+    //        //return 0;
+    //    }
+    //}
 }

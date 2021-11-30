@@ -38,5 +38,18 @@ namespace GreatProject
             temp.ProcessWithData(list_of_value);
 
         }
+
+        private void button_for_logs_writing(object sender, EventArgs e)
+        {
+            string writePath = @"C:\C#_dir\logs.txt";
+            foreach (var temp in Date.Property_for_dictionary)
+            {
+                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(temp.ToString());
+                }
+
+            }
+        }
     }
 }

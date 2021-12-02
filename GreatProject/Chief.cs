@@ -11,7 +11,7 @@ namespace GreatProject
        
       public Chief() : base()
         {
-
+            //метод видалення об'єкта.
         }
     }
 }

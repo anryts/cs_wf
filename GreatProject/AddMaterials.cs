@@ -50,7 +50,7 @@ namespace GreatProject
                 }
                 catch (ZeroLenghtException ex)
                 {
-                    MessageBox.Show($"{ex.Message}");
+                    MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
                     return;
                 }
 
@@ -59,7 +59,7 @@ namespace GreatProject
                     value.Capacity = Convert.ToInt32(textBox_for_capacity.Text);
                 }
 
-                catch (InvalidCastException ex)
+                catch (FormatException ex)
                 {
                     MessageBox.Show(ex.Message);
                     return;
@@ -89,11 +89,9 @@ namespace GreatProject
                 }
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
                 list_of_value.Add(value);
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
-              //  MessageBox.Show($"Added!\n{value.Print_Info()}");
-                //MessageBox.Show($"Added!\n{value.Print_Info(value)}");
+            listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
 
-            textBox_for_name.Clear();
+                 textBox_for_name.Clear();
            
         }
 
@@ -111,6 +109,7 @@ namespace GreatProject
         {
             listBox1.Items.Clear();
             list_of_value.Sort(new Compare_Materials());
+
             foreach(Materials value in list_of_value)
             {
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
@@ -120,6 +119,12 @@ namespace GreatProject
         private void button_for_materials(object sender, EventArgs e)
         {
 
+           // Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
+            Date.Property_for_warehouse_materials.Add_to_list_of_food(list_of_value);
+            foreach (Materials temp in list_of_value)
+            {
+                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+            }
         }
     }
 }

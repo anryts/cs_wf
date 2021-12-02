@@ -30,7 +30,7 @@ namespace GreatProject
         private void button_write_in_file_Click(object sender, EventArgs e)
         {
             Write_in_File_Food temp = new();
-            List<IPrintable> list_of_value = new();
+            List<IPrintable> list_of_value = new();  
             foreach (Food tem in Date.Property_for_warehouse.list_of_food)
             {
                 list_of_value.Add(tem);
@@ -50,6 +50,17 @@ namespace GreatProject
                 }
 
             }
+        }
+
+        private void button_Home_Click(object sender, EventArgs e)
+        {
+            //if(MouseButtons.Left)this.Close();
+            this.Close();
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

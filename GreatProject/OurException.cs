@@ -9,20 +9,16 @@ namespace GreatProject
     class ZeroLenghtException:Exception
     {
 
-	   public string Value
+	   public Item Value
         {
             get;
         }
 
-       public ZeroLenghtException(string message,string value): base( message)
+       public ZeroLenghtException(string message,Item temp): base( message)
         {
-            Value = value;
+           Item Value = temp;
         }
-
-        public ZeroLenghtException(string message, Exception InnerException, string value): base(message,InnerException)
-        {
-            Value  = value;
-        }
+       
     }
 
     class CapacityException : Exception

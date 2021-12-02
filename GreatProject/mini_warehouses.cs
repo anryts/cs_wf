@@ -9,7 +9,42 @@ namespace GreatProject
 
     class warehouse_for_materials : warehouse
     {
-        public List<Materials> list_of_food;
+        public List<Materials> list_of_materials;
+        int current_numbers_of_product;
+        int max_number_of_product;
+
+        public event EventHandler out_of_max_count;                     //івент для керування к-сті об'єктів
+
+        public int Property_for_current_number { get { return current_numbers_of_product; } set { current_numbers_of_product = list_of_materials.Count(); } }
+
+        public int Property_for_max_cout
+            {
+                get {return max_number_of_product;}
+                set { if(value is int)max_number_of_product = value; }
+            }
+        public void Add_to_list_of_food(List<Materials> input_list)
+        {
+            foreach (Materials temp in input_list)
+            {
+                if (list_of_materials.Count < this.Max_number_of_items)
+                {
+                    this.list_of_materials.Add(temp);
+                }
+                else
+                {
+                    if(out_of_max_count !=null)
+                    {
+                        out_of_max_count(this, null);
+                    }
+                }
+            }
+        }
+
+        public warehouse_for_materials()
+        {
+            list_of_materials = new();
+            Property_for_max_cout = 5;
+        }
     }
     
     class warehouse_for_food : warehouse

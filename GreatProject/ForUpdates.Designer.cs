@@ -31,7 +31,6 @@ namespace GreatProject
         {
             this.Button_Return = new System.Windows.Forms.Button();
             this.link_to_git = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -56,15 +55,6 @@ namespace GreatProject
             this.link_to_git.Text = "repository_of_project";
             this.link_to_git.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_to_git_LinkClicked);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(560, 365);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Home";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -81,7 +71,6 @@ namespace GreatProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.link_to_git);
             this.Controls.Add(this.Button_Return);
             this.Name = "ForUpdates";
@@ -95,7 +84,6 @@ namespace GreatProject
 
         private System.Windows.Forms.Button Button_Return;
         private System.Windows.Forms.LinkLabel link_to_git;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
     }
 }

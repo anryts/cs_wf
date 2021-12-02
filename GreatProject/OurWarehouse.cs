@@ -15,7 +15,7 @@ namespace GreatProject
     public partial class OurWarehouse : Form
     {        
       //static  warehouse_for_food mini_dream_food = new warehouse_for_food();
-
+       
       
 
         string type_item;
@@ -23,6 +23,15 @@ namespace GreatProject
         {
             InitializeComponent();
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            KeyPreview = true;
+           //KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
+                this.Load += LoadEvent;
+        }
+      
+
+        private void LoadEvent(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello world");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,18 +43,12 @@ namespace GreatProject
         {
             this.Close();
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-                ForUpdates temp = new ForUpdates();
-                temp.Show();
-            
-        }
+        
 
-        private void button2_Click(object sender, EventArgs e)
+         void button2_Click(object sender, EventArgs e)
         {
-          
-            if(type_item == "Food")
+            
+            if (type_item == "Food" )
             {
                
                 AddFood temp = new AddFood();
@@ -70,7 +73,8 @@ namespace GreatProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            type_item = comboBox1.SelectedItem.ToString();
+            type_item = comboBox1.SelectedItem.ToString();           
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -95,13 +99,29 @@ namespace GreatProject
                 temp.Show();
             }
         }
+
+        private void button2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyValue == (char)Keys.Enter)
+            {
+                button2.PerformClick();
+               
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.MaxLength = 15;
+        }
     }
 
     static class Date
     {
         static warehouse_for_food mini_dream_warehouse = new();
-
+        static warehouse_for_materials mini_dream_warehouse_materials = new();
       // static 
+        static public warehouse_for_materials Property_for_warehouse_materials { get { return mini_dream_warehouse_materials; } }
+
         static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }
 
         static public Dictionary<string, DateTime> Property_for_dictionary
@@ -109,7 +129,7 @@ namespace GreatProject
             get { return dictionary_for_logs; }
         }
 
-        
+
 
         static Dictionary<string, DateTime> dictionary_for_logs = new();
     }

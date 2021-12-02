@@ -8,7 +8,9 @@ namespace GreatProject
 {
     class Food : Item, IPrintable
     {
-        private DateTime expiration_date;
+       private DateTime expiration_date;
+
+
        public DateTime Expiration_date
         {
             get { return expiration_date; }

@@ -25,7 +25,7 @@ namespace GreatProject
                 }
                 else
                 {
-                    throw new ZeroLenghtException("Lenght can not = 0","unknown");
+                    //throw new ZeroLenghtException("Lenght can not = 0", this);
                 }
             }
         }

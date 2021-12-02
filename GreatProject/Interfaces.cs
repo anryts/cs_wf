@@ -22,7 +22,7 @@ namespace GreatProject
         
     }
      
-   class Write_in_File_Food :IWorkData
+   class Write_in_File_Food : IWorkData
     {    
       public void ProcessWithData(List<IPrintable> some_thing)
         {
@@ -37,7 +37,4 @@ namespace GreatProject
             }
         }
     }
-
-    
-
-    }
+}

@@ -54,20 +54,16 @@ namespace GreatProject
         }
 
         private void Add_ToList_Click(object sender, EventArgs e)
-        {
-
-            //Food value = new Food(textBox1.Text, dateTimePicker1.Value);                                
-            //catch (ExpirationDateException ex)               
-            //MessageBox.Show(ex.Message);         
+        {  
 
             Food value = new();
-            try
+                try
                 {
                     value.Name = textBox1.Text;
                 }
                 catch (ZeroLenghtException ex)
                 {
-                    MessageBox.Show($"{ex.Message}");
+                    MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
                     return;
                 }
                 try

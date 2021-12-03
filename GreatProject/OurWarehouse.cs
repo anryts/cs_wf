@@ -21,7 +21,7 @@ namespace GreatProject
             InitializeComponent();
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             KeyPreview = true;
-            Date.event_for_transef example_of_delegate = new(Date.chief_of_warehouse.copying_to_Chief);
+            Date.Event_Handler = new(copying_to_Chief);
             //KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
             this.Load += LoadEvent;
         }
@@ -93,7 +93,7 @@ namespace GreatProject
 
         private void button_for_Chief_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "0123456789")
+            if(textBox1.Text == Date.chief_of_warehouse.PaswordProperty)
             {
                 MessageBox.Show("Welcome!");
                 ChiefForm temp = new();
@@ -109,7 +109,13 @@ namespace GreatProject
                
             }
         }
-       
+
+        void copying_to_Chief(Chief some_other)
+        {
+            Date.chief_of_warehouse.Name_of_person = some_other.Name_of_person;
+            Date.chief_of_warehouse.PaswordProperty = some_other.PaswordProperty;
+        }
+
     }
 
     static class Date

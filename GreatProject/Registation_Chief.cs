@@ -38,8 +38,18 @@ namespace GreatProject
         private void button1_Click(object sender, EventArgs e)
         {
             Chief value = new Chief();
-            value.Name_of_person = textBox1.Text;
+            try
+            {
+                value.Name_of_person = textBox1.Text;
+                value.PaswordProperty = textBox2.Text;
+            }
+            catch(ZeroLenghtException ex)
+            {
+                MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
+                return;
+            }
             Date.Event_Handler(value);
+            this.Close();
         }
     }
 }

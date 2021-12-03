@@ -33,7 +33,8 @@ namespace GreatProject
        public Person()
         {
             name_of_person = "unknown";
-           
+            id_person = Convert.ToString(rd.Next(100000, 999999));
+
         }
         Person (string name)
         {

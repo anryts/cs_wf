@@ -9,18 +9,24 @@ namespace GreatProject
     class Chief : Person
     {
 
-       public void copying_to_Chief(Chief some_other)
+        private string pasword;
+
+        public string PaswordProperty
         {
-            this.name_of_person = some_other.name_of_person;
+            get { return pasword; }
+            set { pasword = value; }
         }
-       
-      public Chief() : base()
+
+
+        void kill_method(List<Item> some_list)
         {
-            //метод видалення об'єкта.
-            void kill_method(List<Item> some_list)
-            {
-                some_list[some_list.Count - 1] = null;
-            }
+            some_list[some_list.Count - 1] = null;
+        }
+
+        public Chief() : base()
+        {
+          
+            
         }
     }
 }

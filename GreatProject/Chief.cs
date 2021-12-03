@@ -12,6 +12,10 @@ namespace GreatProject
       public Chief() : base()
         {
             //метод видалення об'єкта.
+            void kill_method(List<Item> some_list)
+            {
+                some_list[some_list.Count - 1] = null;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    class Materials : Item, IComparable<Materials>
+    class Materials : Item, IPrintable
     {
         private int capacity;                           //об'єм 
         private int weight;                            // вага
@@ -84,6 +84,11 @@ namespace GreatProject
         public override string Print_Info()
         {
             return $"Name:{Name} Capacity:{Capacity}  Weight:{Weight} Type:{Type_of_materials}";
+        }
+
+        string IPrintable.GetData()
+        {
+            return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} Type:{Type_of_materials}";
         }
     }
 }

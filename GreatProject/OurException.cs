@@ -16,7 +16,7 @@ namespace GreatProject
 
        public ZeroLenghtException(string message,Item temp): base( message)
         {
-           Item Value = temp;
+            Value = temp;
         }
        
     }

@@ -20,9 +20,10 @@ namespace GreatProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             OurWarehouse Big_Dream = new();
-            Application.Run(Big_Dream);          
-            warehouse BigDream = new warehouse("Big Dream", 100);
-            
+            Application.Run(Big_Dream);
+            //warehouse BigDream = new warehouse("Big Dream", 100);
+           
+           
         }
     }
 }

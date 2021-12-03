@@ -87,6 +87,12 @@
     <Compile Include="Class_for_Compare.cs" />
     <Compile Include="Electronics.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="Registation_Chief.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registation_Chief.Designer.cs">
+      <DependentUpon>Registation_Chief.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForUpdates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChiefForm.resx">
       <DependentUpon>ChiefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registation_Chief.resx">
+      <DependentUpon>Registation_Chief.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForUpdates.resx">
       <DependentUpon>ForUpdates.cs</DependentUpon>

@@ -14,24 +14,25 @@ namespace GreatProject
 
     public partial class OurWarehouse : Form
     {        
-      //static  warehouse_for_food mini_dream_food = new warehouse_for_food();
-       
-      
-
+      //static  warehouse_for_food mini_dream_food = new warehouse_for_food();       
         string type_item;
         public OurWarehouse()
         {
             InitializeComponent();
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             KeyPreview = true;
-           //KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
-                this.Load += LoadEvent;
+            Date.event_for_transef example_of_delegate = new(Date.chief_of_warehouse.copying_to_Chief);
+            //KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
+            this.Load += LoadEvent;
         }
       
 
         private void LoadEvent(object sender, EventArgs e)
         {
             MessageBox.Show("Hello world");
+            Form_For_Registation temp = new();
+            temp.ShowDialog();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -108,18 +109,19 @@ namespace GreatProject
                
             }
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            textBox2.MaxLength = 15;
-        }
+       
     }
 
     static class Date
     {
         static warehouse_for_food mini_dream_warehouse = new();
+        public  static Chief chief_of_warehouse = new Chief();
         static warehouse_for_materials mini_dream_warehouse_materials = new();
-      // static 
+
+        public delegate void event_for_transef(Chief noob);
+        public  static event_for_transef Event_Handler; 
+
+
         static public warehouse_for_materials Property_for_warehouse_materials { get { return mini_dream_warehouse_materials; } }
 
         static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }
@@ -128,9 +130,6 @@ namespace GreatProject
         {
             get { return dictionary_for_logs; }
         }
-
-
-
         static Dictionary<string, DateTime> dictionary_for_logs = new();
     }
 }

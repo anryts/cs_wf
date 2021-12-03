@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    abstract class Person
+    class Person
     {
         protected string name_of_person;
 
@@ -35,7 +35,7 @@ namespace GreatProject
             name_of_person = "unknown";
            
         }
-        Person (string name, string id_person)
+        Person (string name)
         {
             Name_of_person = name;
             id_person = Convert.ToString(rd.Next(100000,999999));

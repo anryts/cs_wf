@@ -8,6 +8,11 @@ namespace GreatProject
 {
     class Chief : Person
     {
+
+       public void copying_to_Chief(Chief some_other)
+        {
+            this.name_of_person = some_other.name_of_person;
+        }
        
       public Chief() : base()
         {

@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-
+    delegate string inform_about_add (object ex);
     class warehouse_for_materials : warehouse
     {
         public List<Materials> list_of_materials;
         int current_numbers_of_product;
         int max_number_of_product;
 
-        public event EventHandler out_of_max_count;                     //івент для керування к-сті об'єктів
+        public event inform_about_add out_of_max_count;                     //івент для керування к-сті об'єктів
+        
 
         public int Property_for_current_number { get { return current_numbers_of_product; } set { current_numbers_of_product = list_of_materials.Count(); } }
 
@@ -30,13 +31,7 @@ namespace GreatProject
                 {
                     this.list_of_materials.Add(temp);
                 }
-                else
-                {
-                    if(out_of_max_count !=null)
-                    {
-                        out_of_max_count(this, null);
-                    }
-                }
+                break;
             }
         }
 

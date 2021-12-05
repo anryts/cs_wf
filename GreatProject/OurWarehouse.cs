@@ -126,8 +126,6 @@ namespace GreatProject
 
         public delegate void event_for_transef(Chief noob);
         public  static event_for_transef Event_Handler; 
-
-
         static public warehouse_for_materials Property_for_warehouse_materials { get { return mini_dream_warehouse_materials; } }
 
         static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }

@@ -13,12 +13,15 @@ namespace GreatProject
     public partial class AddMaterials : Form
     {
         
-       List<Materials> list_of_value  = new();
-     
+        List<Materials> list_of_value  = new();
+        inform_about_add to_materials = delegate (object example)
+        {
+            List<Materials> list_of = example as List<Materials>;
+            return $"Name:{list_of.Last().Name}\nCount:{list_of.Count()}";
+        };
         public AddMaterials()
         {
             InitializeComponent();
-           
         }
 
         private void textBox_for_name_TextChanged(object sender, EventArgs e)
@@ -89,9 +92,9 @@ namespace GreatProject
                 }
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
                 list_of_value.Add(value);
-            listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
-
-                 textBox_for_name.Clear();
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
+                MessageBox.Show(to_materials(list_of_value));
+                textBox_for_name.Clear();
            
         }
 
@@ -119,12 +122,17 @@ namespace GreatProject
         private void button_for_materials(object sender, EventArgs e)
         {
 
-           // Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
+            //Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
             Date.Property_for_warehouse_materials.Add_to_list_of_food(list_of_value);
             foreach (Materials temp in list_of_value)
             {
                 Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

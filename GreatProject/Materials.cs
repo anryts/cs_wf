@@ -23,7 +23,7 @@ namespace GreatProject
                 }
                 else
                 {
-                    throw new CapacityException("Capacity!<0", 0);
+                    throw new CapacityException("Capacity!<0", this);
                 }
             }
         }

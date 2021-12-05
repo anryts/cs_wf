@@ -16,7 +16,12 @@ namespace GreatProject
     {
              
         List<Food> list_of_value = new List<Food>();
-       
+        inform_about_add to_food = delegate (object example)
+        {
+            List<Food> list_of = example as List<Food>;
+            return $"Name: {list_of.Last().Name}\nExpirationDate: {list_of.Last().Expiration_date}\nCount: {list_of.Count()}";
+        };
+
         public AddFood()
         {
           
@@ -55,37 +60,37 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            Read_from_file temp = new();
-            temp.ReadFile();
-            foreach (Food value in Date.Property_for_warehouse.list_of_food)
+            //Read_from_file temp = new();
+            //temp.ReadFile();
+            //foreach (Food value in Date.Property_for_warehouse.list_of_food)
+            //{
+            //    listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+            //}
+            Food value = new();
+            try
             {
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+                value.Name = textBox1.Text;
             }
-            //Food value = new();
-            //try
-            //{
-            //    value.Name = textBox1.Text;
-            //}
-            //catch (ZeroLenghtException ex)
-            //{
-            //    MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
-            //    return;
-            //}
-            //try
-            //{
-            //    value.Expiration_date = dateTimePicker1.Value;
-            //}
-            //catch (ExpirationDateException ex)
-            //{
-            //    MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Temp_for_exception.Name}\n{ex.Message}");
-            //    return;
-            //}
-            //list_of_value.Add(value);
-            //listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-            //MessageBox.Show($"Added!\n{value.Print_Info()}");
+            catch (ZeroLenghtException ex)
+            {
+                MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
+                return;
+            }
+            try
+            {
+                value.Expiration_date = dateTimePicker1.Value;
+            }
+            catch (ExpirationDateException ex)
+            {
+                MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Temp_for_exception.Name}\n{ex.Message}");
+                return;
+            }
+            list_of_value.Add(value);
+            listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+            MessageBox.Show(to_food(list_of_value));
 
-            //// value.        
-            //textBox1.Clear();
+            // value.        
+            textBox1.Clear();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

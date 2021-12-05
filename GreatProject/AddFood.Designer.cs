@@ -38,6 +38,8 @@ namespace GreatProject
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button_for_sort = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,7 +102,7 @@ namespace GreatProject
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(11, 271);
+            this.button3.Location = new System.Drawing.Point(34, 271);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 32);
@@ -129,11 +131,33 @@ namespace GreatProject
             this.button_for_sort.UseVisualStyleBackColor = true;
             this.button_for_sort.Click += new System.EventHandler(this.button_for_sort_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(399, 194);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(91, 24);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Write from file";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(514, 194);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(91, 24);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Delete ";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // AddFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 361);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button_for_sort);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button3);
@@ -161,5 +185,7 @@ namespace GreatProject
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button_for_sort;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -23,12 +23,12 @@ namespace GreatProject
 
     class CapacityException : Exception
     {
-        public int Value
+        public Item Value
         {
             get;
         }
 
-        public CapacityException(string message, int value) :base(message)
+        public CapacityException(string message, Materials value) :base(message)
         {
             Value = value;
         }

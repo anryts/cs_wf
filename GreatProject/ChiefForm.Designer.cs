@@ -94,6 +94,7 @@ namespace GreatProject
             this.progressBar2.Size = new System.Drawing.Size(168, 23);
             this.progressBar2.TabIndex = 5;
             this.progressBar2.Value = 67;
+            this.progressBar2.Click += new System.EventHandler(this.progressBar2_Click);
             // 
             // progressBar3
             // 

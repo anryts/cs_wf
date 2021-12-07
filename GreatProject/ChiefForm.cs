@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+
+
 
 namespace GreatProject
 {
@@ -16,10 +19,24 @@ namespace GreatProject
         public ChiefForm()
         {
             InitializeComponent();
-            foreach(Food temp in Date.Property_for_warehouse.list_of_food)
+            ToolTip t = new ToolTip();
+           
+            foreach (Food temp in Date.Property_for_warehouse.list_of_food)
             {
                 listBox1.Items.Add(temp.Print_Info());
             }
+            progressBar2.MouseEnter += (s, a) => 
+            { 
+                t.SetToolTip(progressBar2, $"Capacity:{progressBar2.Value}/{progressBar2.Maximum}");   
+            };
+            //progressBar2.MouseLeave += (s, a) => { foreach (Process val in Process.GetProcessesByName("notepad")) val.Kill(); };
+            this.Load += LoadEvent;       
+        }
+
+        void LoadEvent(object sender, EventArgs e)
+        {
+            progressBar2.Maximum = Date.Property_for_warehouse_materials.Property_for_max_cout;
+            progressBar2.Value = Date.Property_for_warehouse_materials.Property_for_current_number;
         }
 
         private void list_box_for_food_warehouse(object sender, EventArgs e)
@@ -60,7 +77,13 @@ namespace GreatProject
 
         private void progressBar1_Click(object sender, EventArgs e)
         {
+            //progressBar1.Maximum = 
+            //progressBar1.Value = 
+        }
 
+        private void progressBar2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

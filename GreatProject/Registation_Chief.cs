@@ -10,8 +10,6 @@ using System.Windows.Forms;
 
 namespace GreatProject
 {
-
-
     public partial class Form_For_Registation: Form
     {
         public Form_For_Registation()
@@ -42,14 +40,18 @@ namespace GreatProject
             {
                 value.Name_of_person = textBox1.Text;
                 value.PaswordProperty = textBox2.Text;
+               
             }
             catch(ZeroLenghtException ex)
             {
                 MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
                 return;
             }
-            Date.Event_Handler(value);
-            this.Close();
+            if (value.Name_of_person != "" && value.PaswordProperty != "")
+            {
+                Date.Event_Handler(value);
+                this.Close();
+            }
         }
     }
 }

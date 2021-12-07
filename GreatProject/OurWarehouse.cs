@@ -22,7 +22,7 @@ namespace GreatProject
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             KeyPreview = true;
             Date.Event_Handler = new(copying_to_Chief);
-            //KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
+            KeyDown += (s,e) => { if (e.KeyValue == (char)Keys.Enter) button2.PerformClick(); };
             this.Load += LoadEvent;
         }
       
@@ -101,14 +101,14 @@ namespace GreatProject
             }
         }
 
-        private void button2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyValue == (char)Keys.Enter)
-            {
-                button2.PerformClick();
+       //private void button2_KeyDown(object sender, KeyEventArgs e)
+       // {
+       //     if(e.KeyValue == (char)Keys.Enter)
+       //     {
+       //         button2.PerformClick();
                
-            }
-        }
+       //     }
+       // }
 
         void copying_to_Chief(Chief some_other)
         {

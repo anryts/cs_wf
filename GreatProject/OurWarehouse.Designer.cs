@@ -128,7 +128,7 @@ namespace GreatProject
             this.Name = "OurWarehouse";
             this.Text = "OurWarehouse";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button2_KeyDown);
+           // this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

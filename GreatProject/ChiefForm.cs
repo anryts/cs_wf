@@ -25,6 +25,11 @@ namespace GreatProject
             {
                 listBox1.Items.Add(temp.Print_Info());
             }
+
+            foreach (Materials temp in Date.Property_for_warehouse_materials.list_of_materials)
+            {
+                listBox2.Items.Add(temp.Print_Info());
+            }
             progressBar2.MouseEnter += (s, a) => 
             { 
                 t.SetToolTip(progressBar2, $"Capacity:{progressBar2.Value}/{progressBar2.Maximum}");   
@@ -49,6 +54,10 @@ namespace GreatProject
             Write_in_File temp = new();
             List<IPrintable> list_of_value = new();  
             foreach (Food tem in Date.Property_for_warehouse.list_of_food)
+            {
+                list_of_value.Add(tem);
+            }
+            foreach (Materials tem in Date.Property_for_warehouse_materials.list_of_materials)
             {
                 list_of_value.Add(tem);
             }
@@ -84,6 +93,11 @@ namespace GreatProject
         private void progressBar2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

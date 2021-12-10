@@ -16,18 +16,18 @@ namespace GreatProject
         public event inform_about_add out_of_max_count;                     //івент для керування к-сті об'єктів
         
 
-        public int Property_for_current_number { get { return current_numbers_of_product; } set { current_numbers_of_product = list_of_materials.Count(); } }
+        public int Property_for_current_number { get { return list_of_materials.Count; } set { current_numbers_of_product = list_of_materials.Count(); } }
 
         public int Property_for_max_cout
             {
                 get {return max_number_of_product;}
                 set { if(value is int)max_number_of_product = value; }
             }
-        public void Add_to_list_of_food(List<Materials> input_list)
+        public void Add_to_list_materials(List<Materials> input_list)
         {
             foreach (Materials temp in input_list)
             {
-                if (list_of_materials.Count < this.Max_number_of_items)
+                if (list_of_materials.Count < this.Property_for_max_cout)
                 {
                     this.list_of_materials.Add(temp);
                 }

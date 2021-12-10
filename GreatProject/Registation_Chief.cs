@@ -15,6 +15,8 @@ namespace GreatProject
         public Form_For_Registation()
         {
             InitializeComponent();
+            KeyPreview = true;
+            KeyDown += (s, e) => { if (e.KeyValue == (char)Keys.Enter) button1.PerformClick(); };
         }
 
         private void Form1_Load(object sender, EventArgs e)

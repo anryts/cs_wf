@@ -123,7 +123,7 @@ namespace GreatProject
         {
 
             //Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
-            Date.Property_for_warehouse_materials.Add_to_list_of_food(list_of_value);
+            Date.Property_for_warehouse_materials.Add_to_list_materials(list_of_value);
             foreach (Materials temp in list_of_value)
             {
                 Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);

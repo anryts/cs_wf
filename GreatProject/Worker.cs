@@ -8,6 +8,6 @@ namespace GreatProject
 {
     class Worker :Person
     {
-
+        //()
     }
 }

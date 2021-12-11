@@ -51,17 +51,19 @@ namespace GreatProject
 
         private void button_write_in_file_Click(object sender, EventArgs e)
         {
-            Write_in_File temp = new();
-            List<IPrintable> list_of_value = new();  
-            foreach (Food tem in Date.Property_for_warehouse.list_of_food)
-            {
-                list_of_value.Add(tem);
-            }
-            foreach (Materials tem in Date.Property_for_warehouse_materials.list_of_materials)
-            {
-                list_of_value.Add(tem);
-            }
-            temp.ProcessWithData(list_of_value);
+            BIN_file temp = new();
+            temp.WriteFile();
+            //Write_in_File temp = new();
+            //List<IPrintable> list_of_value = new();  
+            //foreach (Food tem in Date.Property_for_warehouse.list_of_food)
+            //{
+            //    list_of_value.Add(tem);
+            //}
+            //foreach (Materials tem in Date.Property_for_warehouse_materials.list_of_materials)
+            //{
+            //    list_of_value.Add(tem);
+            //}
+            //temp.ProcessWithData(list_of_value);
 
         }
 

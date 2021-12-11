@@ -2,12 +2,38 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GreatProject
 {
-   //delegate int count_of_j (string line, int i);
+    //delegate int count_of_j (string line, int i);
+
+    class BIN_file
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        public void WriteFile()
+        {
+            using (FileStream fs = new FileStream("food.dat", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs,Date.Property_for_warehouse.list_of_food);
+            }
+        } 
+
+        public void ReadFile()
+        {
+            // Person[] deserilizePeople = (Person[])formatter.Deserialize(fs);
+            using (FileStream fs = new FileStream("food.dat", FileMode.OpenOrCreate))
+            {
+                List<Food> deserilizeFood = (List<Food>)formatter.Deserialize(fs);
+                Date.Property_for_warehouse.Add_to_list_of_food(deserilizeFood);
+                   }
+        }
+    }
+
+
+
     class Read_from_file
     {
         public void ReadFile()
@@ -21,7 +47,7 @@ namespace GreatProject
                     if (line.Contains("Food"))
                     {
                         Food temp = new();
-                       // temp.Name = Convert.ToString(line.TakeWhile((symbol_letter)=>Char.IsLetter(symbol_letter)));
+                        // temp.Name = Convert.ToString(line.TakeWhile((symbol_letter)=>Char.IsLetter(symbol_letter)));
                         //int j = 0;
                         //for (int i = 4; i < line.Length; i++)
                         //{
@@ -64,4 +90,11 @@ namespace GreatProject
 
 
     }
+
+    
 }
+    // десериализация из файла people.dat
+   
+ 
+   
+

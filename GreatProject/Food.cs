@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
+
 namespace GreatProject
 {
+    [Serializable]
     class Food : Item, IPrintable
     {
        private DateTime expiration_date;

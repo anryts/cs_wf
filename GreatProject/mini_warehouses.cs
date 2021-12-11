@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    delegate string inform_about_add (object ex);
+    delegate string inform_about_add(object ex);
+    [Serializable]
     class warehouse_for_materials : warehouse
     {
         public List<Materials> list_of_materials;

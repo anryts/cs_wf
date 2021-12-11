@@ -27,6 +27,7 @@ namespace GreatProject
           
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Short;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,12 +61,7 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            //Read_from_file temp = new();
-            //temp.ReadFile();
-            //foreach (Food value in Date.Property_for_warehouse.list_of_food)
-            //{
-            //    listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-            //}
+            
             Food value = new();
             try
             {
@@ -121,6 +117,24 @@ namespace GreatProject
             {
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BIN_file temp = new();
+            temp.ReadFile();
+            listBox1.Items.Clear();
+            foreach (Food value in Date.Property_for_warehouse.list_of_food)
+            {
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+            }
+            //Read_from_file temp = new();
+            //temp.ReadFile();
+            //foreach (Food value in Date.Property_for_warehouse.list_of_food)
+            //{
+            //    listBox1.Items.Add($"FILE Name:{value.Name}  Price:{value.price_of_item()} Expiration Date:{value.Expiration_date}");
+            //}
+            (sender as Button).Enabled = false;
         }
     }
 }

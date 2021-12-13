@@ -16,24 +16,28 @@ namespace GreatProject
         public Queue<Food> PropertyQueueFood
         {
             get { return queue_for_food; }
-            set
-            {
-                foreach (var item in value)
-                {
-                    queue_for_food.Enqueue(item);
-                }
-            }
+            
         }
 
         public Stack<Materials> PropertyStackMaterials
         {
             get { return stack_for_materials; }
-            set
+            
+        }
+
+       public void Add_to_Stack (List<Materials> some_list)
+        {
+            foreach (Materials item in some_list)
             {
-                foreach (var item in value)
-                {
-                    stack_for_materials.Push(item);
-                }
+                this.PropertyStackMaterials.Push(item);
+            }
+        }
+
+      public  void Add_to_Queue (List <Food> some_list)
+        {
+            foreach (Food item in some_list)
+            {
+                this.PropertyQueueFood.Enqueue(item);
             }
         }
 

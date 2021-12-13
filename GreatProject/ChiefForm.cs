@@ -21,7 +21,8 @@ namespace GreatProject
             InitializeComponent();
             ToolTip t = new ToolTip();
 
-            Date.chief_of_warehouse.PropertyQueueFood = Date.Property_for_warehouse.list_of_food;
+            Date.chief_of_warehouse.Add_to_Queue(Date.Property_for_warehouse.list_of_food);
+            Date.chief_of_warehouse.Add_to_Stack(Date.Property_for_warehouse_materials.list_of_materials);
 
             foreach (Food temp in Date.Property_for_warehouse.list_of_food)
             {
@@ -74,7 +75,7 @@ namespace GreatProject
             string writePath = @"C:\C#_dir\logs.txt";
             foreach (var temp in Date.Property_for_dictionary)
             {
-                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
                 {
                     sw.WriteLine(temp.ToString());
                 }

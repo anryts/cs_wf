@@ -11,10 +11,10 @@ using System.IO;
 using GreatProject.Properties;
 namespace GreatProject
 {
-    
+
     public partial class AddFood : Form
     {
-             
+
         List<Food> list_of_value = new List<Food>();
         inform_about_add to_food = delegate (object example)
         {
@@ -24,10 +24,10 @@ namespace GreatProject
 
         public AddFood()
         {
-          
+
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,12 +43,12 @@ namespace GreatProject
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace GreatProject
 
         private void Add_ToList_Click(object sender, EventArgs e)
         {
-            
+
             Food value = new();
             try
             {
@@ -96,13 +96,28 @@ namespace GreatProject
         {
         }
 
+        void dispalay_to_list_box()
+        {
+            if (listBox1.Items.Count != 0 )
+            {
+                listBox1.Items.Clear();
+
+                foreach (var value in list_of_value)
+                {
+                    if (value is not null)
+                    {
+                        listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+                    }
+                }
+            }
+        }
+
         private void write_in_main_list_click(object sender, EventArgs e)
         {
             Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
-            foreach(Food temp in list_of_value)
+            foreach (Food temp in list_of_value)
             {
-               
-                    Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);           
+                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
             }
         }
 
@@ -110,17 +125,13 @@ namespace GreatProject
         {
             //dateTimePicker1.Format = DateTimePickerFormat.Short;
             //DateTime? selectedDate = dateTimePicker1.Value;
-           
         }
 
         private void button_for_sort_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             list_of_value.Sort(new Compare_Food());
-            foreach (Food value in list_of_value)
-            {
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-            }
+            this.dispalay_to_list_box();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -131,11 +142,8 @@ namespace GreatProject
             {
                 list_of_value.Add(tem);
             }
-            listBox1.Items.Clear();
-            foreach (Food value in list_of_value)
-            {
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-            }
+            this.dispalay_to_list_box();
+           
             //Read_from_file temp = new();
             //temp.ReadFile();
             //foreach (Food value in Date.Property_for_warehouse.list_of_food)
@@ -143,6 +151,16 @@ namespace GreatProject
             //    listBox1.Items.Add($"FILE Name:{value.Name}  Price:{value.price_of_item()} Expiration Date:{value.Expiration_date}");
             //}
             (sender as Button).Enabled = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (list_of_value.Count !=0)
+            {
+                list_of_value[list_of_value.Count - 1] = null;
+            }
+            this.dispalay_to_list_box();
+
         }
     }
 }

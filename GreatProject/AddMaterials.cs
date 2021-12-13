@@ -83,16 +83,14 @@ namespace GreatProject
                  MessageBox.Show(ex.Message);
                   return;
                 }
-
                  catch (Exception ex)
-
                 {
                     MessageBox.Show($"Помилка :{ex.Message}");
                     return;
                 }
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
                 list_of_value.Add(value);
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
+            this.print_to_list_box();
             if (to_materials is not null)
             {
                 MessageBox.Show(to_materials(list_of_value));
@@ -105,6 +103,18 @@ namespace GreatProject
         {
 
         }
+        
+        void print_to_list_box()
+        {
+            if(listBox1.Items.Count != 0)
+            {
+                listBox1.Items.Clear();
+            }
+            foreach (var value in list_of_value)
+            {
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
+            }
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -116,10 +126,7 @@ namespace GreatProject
             listBox1.Items.Clear();
             list_of_value.Sort(new Compare_Materials());
 
-            foreach(Materials value in list_of_value)
-            {
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
-            }
+            this.print_to_list_box();
         }
 
         private void button_for_materials(object sender, EventArgs e)
@@ -135,12 +142,31 @@ namespace GreatProject
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            if (list_of_value.Count != 0)
+            {
+                list_of_value[list_of_value.Count - 1] = null;
+            }
+            this.print_to_list_box();
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
-
+        { BIN_file<Materials> temp = new();
+           
+            string path = "materials.dat";
+            if (temp.ReadFile(path) is not null)
+            {
+                foreach (Materials tem in temp.ReadFile("materials.dat"))
+                {
+                    if (tem is not null)
+                    {
+                        list_of_value.Add(tem);
+                    }
+                }
+                this.print_to_list_box();
+                (sender as Button).Enabled = false;
+            }
+            inform_about_add file_read = (path) => { return ($"У файлі - {path} пусто"); };
+            MessageBox.Show(file_read(path));
         }
     }
 }

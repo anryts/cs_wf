@@ -24,7 +24,7 @@ namespace GreatProject
             get { return stack_for_materials; }
             
         }
-
+        static HashSet<string> all_items_in_warehouse = new();
        public void Add_to_Stack (List<Materials> some_list)
         {
             foreach (Materials item in some_list)

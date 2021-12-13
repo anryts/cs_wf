@@ -17,7 +17,7 @@ namespace GreatProject
         {
             using (FileStream fs = new FileStream(path, FileMode.Append))
             {
-                formatter.Serialize(fs,Date.Property_for_warehouse.list_of_food);
+                formatter.Serialize(fs, example_gen);
             }
         } 
 
@@ -25,9 +25,13 @@ namespace GreatProject
         {
 
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-            {     
-                List<T> deserilizeList = (List<T>)formatter.Deserialize(fs);
-                return deserilizeList;
+            {
+                if (fs.Length != 0)
+                {
+                    List<T> deserilizeList = (List<T>)formatter.Deserialize(fs);
+                    return deserilizeList;
+                }
+                return null;
                
             }
         }
@@ -94,7 +98,6 @@ namespace GreatProject
 
     
 }
-    // десериализация из файла people.dat
    
  
    

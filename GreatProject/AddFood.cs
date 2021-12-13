@@ -16,11 +16,7 @@ namespace GreatProject
     {
 
         List<Food> list_of_value = new List<Food>();
-        inform_about_add to_food = delegate (object example)
-        {
-            List<Food> list_of = example as List<Food>;
-            return $"Name: {list_of.Last().Name}\nExpirationDate: {list_of.Last().Expiration_date}\nCount: {list_of.Count()}";
-        };
+        
 
         public AddFood()
         {
@@ -81,6 +77,12 @@ namespace GreatProject
                 MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Temp_for_exception.Name}\n{ex.Message}");
                 return;
             }
+            inform_about_add to_food = delegate (object example)
+            {
+                List<Food> list_of = example as List<Food>;
+                return $"Name: {list_of.Last().Name}\nExpirationDate: {list_of.Last().Expiration_date}\nCount: {list_of.Count()}";
+            };
+
             list_of_value.Add(value);
             listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
             if (to_food is not null)
@@ -137,20 +139,25 @@ namespace GreatProject
         private void button4_Click(object sender, EventArgs e)
         {
             BIN_file<Food> temp = new();
-
-            foreach (Food tem in temp.ReadFile("food.dat"))
+            string path = "food.dat";
+            if (temp.ReadFile(path) is not null)
             {
-                list_of_value.Add(tem);
+                foreach (Food tem in temp.ReadFile("food.dat"))
+                {
+                    list_of_value.Add(tem);
+                }
+                this.dispalay_to_list_box();
+                (sender as Button).Enabled = false;
             }
-            this.dispalay_to_list_box();
-           
+            inform_about_add file_read = (path) => { return ($"У файлі - {path} пусто"); };
+            MessageBox.Show(file_read(path));
             //Read_from_file temp = new();
             //temp.ReadFile();
             //foreach (Food value in Date.Property_for_warehouse.list_of_food)
             //{
             //    listBox1.Items.Add($"FILE Name:{value.Name}  Price:{value.price_of_item()} Expiration Date:{value.Expiration_date}");
             //}
-            (sender as Button).Enabled = false;
+           
         }
 
         private void button5_Click(object sender, EventArgs e)

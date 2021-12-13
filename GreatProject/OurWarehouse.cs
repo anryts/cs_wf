@@ -118,7 +118,7 @@ namespace GreatProject
 
     }
 
-    [Serializable]
+  
     static class Date
     {
         static warehouse_for_food mini_dream_warehouse = new();

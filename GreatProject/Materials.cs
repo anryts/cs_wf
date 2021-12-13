@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
+    [Serializable]
     class Materials : Item, IPrintable
     {
         private int capacity;                           //об'єм 

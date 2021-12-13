@@ -20,7 +20,9 @@ namespace GreatProject
         {
             InitializeComponent();
             ToolTip t = new ToolTip();
-           
+
+            Date.chief_of_warehouse.PropertyQueueFood = Date.Property_for_warehouse.list_of_food;
+
             foreach (Food temp in Date.Property_for_warehouse.list_of_food)
             {
                 listBox1.Items.Add(temp.Print_Info());
@@ -51,8 +53,8 @@ namespace GreatProject
 
         private void button_write_in_file_Click(object sender, EventArgs e)
         {
-            BIN_file temp = new();
-            temp.WriteFile();
+            BIN_file<Food> temp = new();
+            temp.WriteFile(Date.Property_for_warehouse.list_of_food, "food.dat");
             //Write_in_File temp = new();
             //List<IPrintable> list_of_value = new();  
             //foreach (Food tem in Date.Property_for_warehouse.list_of_food)

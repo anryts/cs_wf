@@ -93,7 +93,10 @@ namespace GreatProject
                 value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
                 list_of_value.Add(value);
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
+            if (to_materials is not null)
+            {
                 MessageBox.Show(to_materials(list_of_value));
+            }
                 textBox_for_name.Clear();
            
         }
@@ -131,6 +134,11 @@ namespace GreatProject
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }

@@ -83,7 +83,10 @@ namespace GreatProject
             }
             list_of_value.Add(value);
             listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
-            MessageBox.Show(to_food(list_of_value));
+            if (to_food is not null)
+            {
+                MessageBox.Show(to_food(list_of_value));
+            }
 
             // value.        
             textBox1.Clear();
@@ -98,7 +101,8 @@ namespace GreatProject
             Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
             foreach(Food temp in list_of_value)
             {
-                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+               
+                    Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);           
             }
         }
 
@@ -121,10 +125,14 @@ namespace GreatProject
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BIN_file temp = new();
-            temp.ReadFile();
+            BIN_file<Food> temp = new();
+
+            foreach (Food tem in temp.ReadFile("food.dat"))
+            {
+                list_of_value.Add(tem);
+            }
             listBox1.Items.Clear();
-            foreach (Food value in Date.Property_for_warehouse.list_of_food)
+            foreach (Food value in list_of_value)
             {
                 listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
             }

@@ -10,25 +10,26 @@ namespace GreatProject
 {
     //delegate int count_of_j (string line, int i);
 
-    class BIN_file
+    class BIN_file<T>
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        public void WriteFile()
+        public void WriteFile(List<T> example_gen, string path)
         {
-            using (FileStream fs = new FileStream("food.dat", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(path, FileMode.Append))
             {
                 formatter.Serialize(fs,Date.Property_for_warehouse.list_of_food);
             }
         } 
 
-        public void ReadFile()
+        public List<T> ReadFile(string path)
         {
-            // Person[] deserilizePeople = (Person[])formatter.Deserialize(fs);
-            using (FileStream fs = new FileStream("food.dat", FileMode.OpenOrCreate))
-            {
-                List<Food> deserilizeFood = (List<Food>)formatter.Deserialize(fs);
-                Date.Property_for_warehouse.Add_to_list_of_food(deserilizeFood);
-                   }
+
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {     
+                List<T> deserilizeList = (List<T>)formatter.Deserialize(fs);
+                return deserilizeList;
+               
+            }
         }
     }
 

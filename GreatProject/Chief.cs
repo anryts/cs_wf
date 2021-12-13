@@ -10,23 +10,43 @@ namespace GreatProject
     {
 
         private string pasword;
+        private Queue<Food> queue_for_food = new();
+        private Stack<Materials> stack_for_materials = new();
+
+        public Queue<Food> PropertyQueueFood
+        {
+            get { return queue_for_food; }
+            set
+            {
+                foreach (var item in value)
+                {
+                    queue_for_food.Enqueue(item);
+                }
+            }
+        }
+
+        public Stack<Materials> PropertyStackMaterials
+        {
+            get { return stack_for_materials; }
+            set
+            {
+                foreach (var item in value)
+                {
+                    stack_for_materials.Push(item);
+                }
+            }
+        }
 
         public string PaswordProperty
         {
             get { return pasword; }
             set { pasword = value; }
         }
-
-
-        void kill_method(List<Item> some_list)
-        {
-            some_list[some_list.Count - 1] = null;
-        }
+       
 
         public Chief() : base()
         {
-          
-            
+            PaswordProperty = "";
         }
     }
 }

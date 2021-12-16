@@ -61,7 +61,13 @@ namespace GreatProject
             Food value = new();
             try
             {
-                value.Name = textBox1.Text;
+                if (!Date.name.Contains(textBox1.Text))
+                {
+                    value.Name = textBox1.Text;
+                    Date.name.Add(value.Name);
+                }
+                else { MessageBox.Show($"{textBox1.Text} вже наявне"); return; }
+                
             }
             catch (ZeroLenghtException ex)
             {
@@ -89,9 +95,10 @@ namespace GreatProject
             {
                 MessageBox.Show(to_food(list_of_value));
             }
-
+            dateTimePicker1.Value = DateTime.Now;
             // value.        
             textBox1.Clear();
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,10 +123,15 @@ namespace GreatProject
 
         private void write_in_main_list_click(object sender, EventArgs e)
         {
+            
             Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
             foreach (Food temp in list_of_value)
             {
-                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+                if (Date.name.Contains(temp.Name))
+                {
+                    Date.name.Add(temp.Name);
+                }
+                Date.Property_for_dictionary.Add(DateTime.Now, temp.Name);
             }
         }
 
@@ -127,6 +139,7 @@ namespace GreatProject
         {
             //dateTimePicker1.Format = DateTimePickerFormat.Short;
             //DateTime? selectedDate = dateTimePicker1.Value;
+            
         }
 
         private void button_for_sort_Click(object sender, EventArgs e)

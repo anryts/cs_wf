@@ -13,12 +13,14 @@ namespace GreatProject
    
 
     public partial class OurWarehouse : Form
-    {        
-      //static  warehouse_for_food mini_dream_food = new warehouse_for_food();       
+    {
+       
+        //static  warehouse_for_food mini_dream_food = new warehouse_for_food();       
         string type_item;
         public OurWarehouse()
         {
             InitializeComponent();
+
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             KeyPreview = true;
             Date.Event_Handler = new(copying_to_Chief);
@@ -28,8 +30,7 @@ namespace GreatProject
       
 
         private void LoadEvent(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello world");
+        {         
             Form_For_Registation temp = new();
             temp.ShowDialog();
            
@@ -101,6 +102,10 @@ namespace GreatProject
             }
         }
 
+
+       
+
+
        //private void button2_KeyDown(object sender, KeyEventArgs e)
        // {
        //     if(e.KeyValue == (char)Keys.Enter)
@@ -109,6 +114,7 @@ namespace GreatProject
                
        //     }
        // }
+
 
         void copying_to_Chief(Chief some_other)
         {
@@ -121,6 +127,15 @@ namespace GreatProject
   
     static class Date
     {
+        public static HashSet<string> name = new();
+
+        static public Dictionary<DateTime,string > Property_for_dictionary
+        {
+            get { return dictionary_for_logs; }
+        }
+        static Dictionary<DateTime, string> dictionary_for_logs = new();
+
+
         static warehouse_for_food mini_dream_warehouse = new();
         public  static Chief chief_of_warehouse = new Chief();
         static warehouse_for_materials mini_dream_warehouse_materials = new();
@@ -131,10 +146,6 @@ namespace GreatProject
 
         static public warehouse_for_food Property_for_warehouse { get { return mini_dream_warehouse; } }
 
-        static public Dictionary<string, DateTime> Property_for_dictionary
-        {
-            get { return dictionary_for_logs; }
-        }
-        static Dictionary<string, DateTime> dictionary_for_logs = new();
+       
     }
 }

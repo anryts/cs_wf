@@ -30,6 +30,8 @@ namespace GreatProject
             foreach (Materials item in some_list)
             {
                 this.PropertyStackMaterials.Push(item);
+
+
             }
         }
 
@@ -38,6 +40,7 @@ namespace GreatProject
             foreach (Food item in some_list)
             {
                 this.PropertyQueueFood.Enqueue(item);
+               
             }
         }
 

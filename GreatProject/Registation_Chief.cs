@@ -10,14 +10,26 @@ using System.Windows.Forms;
 
 namespace GreatProject
 {
-    public partial class Form_For_Registation: Form
+     partial class Form_For_Registation: Form
     {
+        TransferChief example = new TransferChief();
         public Form_For_Registation()
         {
             InitializeComponent();
             KeyPreview = true;
             KeyDown += (s, e) => { if (e.KeyValue == (char)Keys.Enter) button1.PerformClick(); };
+            example.example_event += transfer_event;
         }
+
+
+        void transfer_event(object s, ChiefTransferEventArgs e)
+        {
+            MessageBox.Show($"Welcome, to the club buddy {e.GiveChief.Name_of_person}");
+            Date.chief_of_warehouse.Name_of_person = e.GiveChief.Name_of_person;
+            Date.chief_of_warehouse.PaswordProperty = e.GiveChief.PaswordProperty;
+            this.Close();
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -49,10 +61,10 @@ namespace GreatProject
                 MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
                 return;
             }
-            if (value.Name_of_person != "" && value.PaswordProperty != "")
+            if (value.Name_of_person.Length!=0 && value.PaswordProperty.Length!=0)
             {
-                Date.Event_Handler(value);
-                this.Close();
+               
+                example.SimulateTransfer(value);
             }
         }
     }

@@ -85,6 +85,7 @@
       <DependentUpon>ChiefForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_for_Compare.cs" />
+    <Compile Include="ChiefTransferEventArgs.cs" />
     <Compile Include="Class_for_Files.cs" />
     <Compile Include="Electronics.cs" />
     <Compile Include="Food.cs" />

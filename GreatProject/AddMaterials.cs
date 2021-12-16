@@ -47,9 +47,13 @@ namespace GreatProject
         private void button_for_add_Click(object sender, EventArgs e)
         {
             Materials value = new();
-                try
+            try
+            {
+                if (!Date.name.Contains(textBox_for_name.Text))
                 {
                     value.Name = textBox_for_name.Text;
+                }
+                else { MessageBox.Show($"{textBox_for_name.Text} вже наявне"); return; }
                 }
                 catch (ZeroLenghtException ex)
                 {
@@ -136,7 +140,11 @@ namespace GreatProject
             Date.Property_for_warehouse_materials.Add_to_list_materials(list_of_value);
             foreach (Materials temp in list_of_value)
             {
-                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+                if (Date.name.Contains(temp.Name))
+                {
+                    Date.name.Add(temp.Name);
+                }
+                Date.Property_for_dictionary.Add(DateTime.Now, temp.Name);
             }
         }
 

@@ -24,7 +24,7 @@ namespace GreatProject
 
         void transfer_event(object s, ChiefTransferEventArgs e)
         {
-            MessageBox.Show($"Welcome, to the club buddy {e.GiveChief.Name_of_person}");
+            MessageBox.Show($"Welcome to the club buddy {e.GiveChief.Name_of_person}");
             Date.chief_of_warehouse.Name_of_person = e.GiveChief.Name_of_person;
             Date.chief_of_warehouse.PaswordProperty = e.GiveChief.PaswordProperty;
             this.Close();

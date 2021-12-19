@@ -63,8 +63,7 @@ namespace GreatProject
             {
                 if (!Date.name.Contains(textBox1.Text))
                 {
-                    value.Name = textBox1.Text;
-                    Date.name.Add(value.Name);
+                    value.Name = textBox1.Text;                  
                 }
                 else { MessageBox.Show($"{textBox1.Text} вже наявне"); return; }
                 
@@ -122,16 +121,15 @@ namespace GreatProject
         }
 
         private void write_in_main_list_click(object sender, EventArgs e)
-        {
-            
-            Date.Property_for_warehouse.Add_to_list_of_food(list_of_value);
+        {                    
             foreach (Food temp in list_of_value)
             {
-                if (Date.name.Contains(temp.Name))
+                if (!Date.name.Contains(temp.Name))
                 {
                     Date.name.Add(temp.Name);
+                    Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+                    Date.Property_for_warehouse.list_of_food.Add(temp);
                 }
-                Date.Property_for_dictionary.Add(DateTime.Now, temp.Name);
             }
         }
 

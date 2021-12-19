@@ -11,7 +11,7 @@ namespace GreatProject
     {
         private int capacity;                           //об'єм 
         private int weight;                            // вага
-        string type_of_materials;                  
+                 
 
 
         public int Capacity
@@ -27,11 +27,6 @@ namespace GreatProject
                     throw new CapacityException("Capacity!<0", this);
                 }
             }
-        }
-        public string Type_of_materials
-        {
-            get { return type_of_materials; }
-            set { type_of_materials = value; }
         }
        
 
@@ -84,12 +79,12 @@ namespace GreatProject
 
         public override string Print_Info()
         {
-            return $"Name:{Name} Capacity:{Capacity}  Weight:{Weight} Type:{Type_of_materials}";
+            return $"Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
         }
 
         string IPrintable.GetData()
         {
-            return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} Type:{Type_of_materials}";
+            return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
         }
     }
 }

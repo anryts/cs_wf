@@ -91,8 +91,7 @@ namespace GreatProject
                 {
                     MessageBox.Show($"Помилка :{ex.Message}");
                     return;
-                }
-                value.Type_of_materials = Convert.ToString(comboBox1.SelectedItem);
+                }     
                 list_of_value.Add(value);
             this.print_to_list_box();
             if (to_materials is not null)
@@ -100,7 +99,8 @@ namespace GreatProject
                 MessageBox.Show(to_materials(list_of_value));
             }
                 textBox_for_name.Clear();
-           
+                textBox_for_capacity.Clear();
+                textBox_for_weight.Clear();   
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace GreatProject
             }
             foreach (var value in list_of_value)
             {
-                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()}  Type:{value.Type_of_materials}");
+                listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_Materials()} ");
             }
         }
 
@@ -137,14 +137,14 @@ namespace GreatProject
         {
 
             //Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
-            Date.Property_for_warehouse_materials.Add_to_list_materials(list_of_value);
             foreach (Materials temp in list_of_value)
             {
-                if (Date.name.Contains(temp.Name))
+                if (!Date.name.Contains(temp.Name))
                 {
                     Date.name.Add(temp.Name);
+                    Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
+                    Date.Property_for_warehouse_materials.list_of_materials.Add(temp);
                 }
-                Date.Property_for_dictionary.Add(DateTime.Now, temp.Name);
             }
         }
 
@@ -158,7 +158,8 @@ namespace GreatProject
         }
 
         private void button5_Click(object sender, EventArgs e)
-        { BIN_file<Materials> temp = new();
+        { 
+            BIN_file<Materials> temp = new();
            
             string path = "materials.dat";
             if (temp.ReadFile(path) is not null)
@@ -175,6 +176,11 @@ namespace GreatProject
             }
             inform_about_add file_read = (path) => { return ($"У файлі - {path} пусто"); };
             MessageBox.Show(file_read(path));
+        }
+
+        private void AddMaterials_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

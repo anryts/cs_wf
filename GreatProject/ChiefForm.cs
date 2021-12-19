@@ -102,7 +102,16 @@ namespace GreatProject
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Convert.ToString(Date.Property_for_dictionary[textBox1.Text]
+        }
 
+        private void button_for_search_Click(object sender, EventArgs e)
+        {
+            if (Date.name.Contains(textBox1.Text))
+            {
+                MessageBox.Show($"Об'єкт {textBox1.Text} знаходиться на складі\nБув доданий о: {Convert.ToString(Date.Property_for_dictionary[textBox1.Text])}");
+            }
+            else { MessageBox.Show("Такого об'єкта нема :("); }
         }
     }
 }

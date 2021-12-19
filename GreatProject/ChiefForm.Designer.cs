@@ -36,14 +36,16 @@ namespace GreatProject
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(26, 35);
+            this.listBox1.Location = new System.Drawing.Point(26, 178);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(284, 238);
+            this.listBox1.Size = new System.Drawing.Size(284, 95);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.list_box_for_food_warehouse);
             // 
@@ -69,7 +71,7 @@ namespace GreatProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(363, 356);
+            this.button2.Location = new System.Drawing.Point(395, 334);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 38);
             this.button2.TabIndex = 3;
@@ -98,17 +100,36 @@ namespace GreatProject
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(352, 35);
+            this.listBox2.Location = new System.Drawing.Point(352, 178);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(290, 238);
+            this.listBox2.Size = new System.Drawing.Size(290, 95);
             this.listBox2.TabIndex = 7;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(103, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(37, 54);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(76, 31);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Search";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_for_search_Click);
             // 
             // ChiefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 406);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);
@@ -119,6 +140,7 @@ namespace GreatProject
             this.Name = "ChiefForm";
             this.Text = "ChiefForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,5 +153,7 @@ namespace GreatProject
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }

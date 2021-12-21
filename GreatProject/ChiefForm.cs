@@ -113,5 +113,14 @@ namespace GreatProject
             }
             else { MessageBox.Show("Такого об'єкта нема :("); }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (Date.sorted_list_example.ContainsKey(Convert.ToInt32(textBox2.Text)))
+            {
+                MessageBox.Show($"Об'єкт {Date.sorted_list_example[Convert.ToInt32(textBox1.Text)]} знаходиться на складі");
+            }
+            else { MessageBox.Show("Такого об'єкта нема :("); }
+        }
     }
 }

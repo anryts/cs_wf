@@ -129,11 +129,17 @@ namespace GreatProject
     {
         public static HashSet<string> name = new();
 
+        public static SortedList<int, string> sorted_list_example = new();
+
+
         static public Dictionary<string,DateTime > Property_for_dictionary
         {
             get { return dictionary_for_logs; }
         }
         static Dictionary<string, DateTime> dictionary_for_logs = new();
+
+       
+
 
 
         static warehouse_for_food mini_dream_warehouse = new();

@@ -63,7 +63,6 @@ namespace GreatProject
             }
             if (value.Name_of_person.Length!=0 && value.PaswordProperty.Length!=0)
             {
-               
                 example.SimulateTransfer(value);
             }
         }

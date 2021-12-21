@@ -127,6 +127,7 @@ namespace GreatProject
                 if (!Date.name.Contains(temp.Name))
                 {
                     Date.name.Add(temp.Name);
+                    Date.sorted_list_example.Add(temp.price_of_item(), temp.Name);
                     Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
                     Date.Property_for_warehouse.list_of_food.Add(temp);
                 }

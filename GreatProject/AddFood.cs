@@ -106,10 +106,10 @@ namespace GreatProject
 
         void dispalay_to_list_box()
         {
-            if (listBox1.Items.Count != 0 )
+            if (listBox1.Items.Count != 0)
             {
                 listBox1.Items.Clear();
-
+            }
                 foreach (var value in list_of_value)
                 {
                     if (value is not null)
@@ -117,14 +117,14 @@ namespace GreatProject
                         listBox1.Items.Add($"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
                     }
                 }
-            }
+            
         }
 
         private void write_in_main_list_click(object sender, EventArgs e)
         {                    
             foreach (Food temp in list_of_value)
             {
-                if (!Date.name.Contains(temp.Name))
+                if (!Date.name.Contains(temp.Name) && !Date.sorted_list_example.ContainsKey(temp.price_of_item()))
                 {
                     Date.name.Add(temp.Name);
                     Date.sorted_list_example.Add(temp.price_of_item(), temp.Name);

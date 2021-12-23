@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace GreatProject
 {
-    //delegate int count_of_j (string line, int i);
-
-    class BIN_file<T>
+    class BIN_file<T> where T: Item
     {
         BinaryFormatter formatter = new BinaryFormatter();
         public void WriteFile(List<T> example_gen, string path)
@@ -32,7 +30,6 @@ namespace GreatProject
                     return deserilizeList;
                 }
                 return null;
-               
             }
         }
     }
@@ -96,7 +93,6 @@ namespace GreatProject
 
     }
 
-    
 }
    
  

@@ -10,6 +10,8 @@ namespace GreatProject
     {
 
         private string pasword;
+
+
         private Queue<Food> queue_for_food = new();
         private Stack<Materials> stack_for_materials = new();
 

@@ -24,14 +24,13 @@ namespace GreatProject
             Date.chief_of_warehouse.Add_to_Queue(Date.Property_for_warehouse.list_of_food);
             Date.chief_of_warehouse.Add_to_Stack(Date.Property_for_warehouse_materials.list_of_materials);
 
-            foreach (Food temp in Date.Property_for_warehouse.list_of_food)
+            while(Date.chief_of_warehouse.PropertyQueueFood.Count!=0)
             {
-                listBox1.Items.Add(temp.Print_Info());
+                listBox1.Items.Add(Date.chief_of_warehouse.PropertyQueueFood.Dequeue().Print_Info());
             }
-
-            foreach (Materials temp in Date.Property_for_warehouse_materials.list_of_materials)
+            while (Date.chief_of_warehouse.PropertyStackMaterials.Count!=0)
             {
-                listBox2.Items.Add(temp.Print_Info());
+                listBox2.Items.Add(Date.chief_of_warehouse.PropertyStackMaterials.Pop().Print_Info());
             }
             progressBar2.MouseEnter += (s, a) => 
             { 
@@ -79,20 +78,17 @@ namespace GreatProject
                 {
                     sw.WriteLine(temp.ToString());
                 }
-
             }
         }
 
         private void button_Home_Click(object sender, EventArgs e)
-        {
-            //if(MouseButtons.Left)this.Close();
+        { 
             this.Close();
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
         {
-            //progressBar1.Maximum = 
-            //progressBar1.Value = 
+          
         }
 
         private void progressBar2_Click(object sender, EventArgs e)
@@ -116,6 +112,10 @@ namespace GreatProject
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if(textBox2.Text.Length == 0)
+            {
+                return;
+            }
             if (Date.sorted_list_example.ContainsKey(Convert.ToInt32(textBox2.Text)))
             {
                 MessageBox.Show($"Об'єкт {Date.sorted_list_example[Convert.ToInt32(textBox1.Text)]} знаходиться на складі");

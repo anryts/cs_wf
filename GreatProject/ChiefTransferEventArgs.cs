@@ -30,6 +30,7 @@ namespace GreatProject
         void OnMethodExample( ChiefTransferEventArgs e)
         {
             example_event?.Invoke(this, e);
+           
         }
 
         public void SimulateTransfer (Chief example)

@@ -14,11 +14,14 @@ namespace GreatProject
     {
         
         List<Materials> list_of_value  = new();
+
+
         inform_about_add to_materials = delegate (object example)
         {
             List<Materials> list_of = example as List<Materials>;
             return $"Name:{list_of.Last().Name}\nCount:{list_of.Count()}";
         };
+
         public AddMaterials()
         {
             InitializeComponent();

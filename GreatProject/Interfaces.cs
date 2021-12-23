@@ -28,17 +28,23 @@ namespace GreatProject
 
     class Write_in_File : IWorkData
     {
+
+        private string writePath;
+
+        public string WritePath     
+        {
+            get { return writePath; }
+            set { writePath = value; }
+        }
+
         public void ProcessWithData(List<IPrintable> some_thing)
         {
-            string writePath = @"C:\C#_dir\1.txt";
             foreach (IPrintable temp in some_thing)
             {
-                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(WritePath, true, System.Text.Encoding.Default))
                 {
                     sw.WriteLine(temp.GetData());
-                    
                 }
-
             }
         }
     }

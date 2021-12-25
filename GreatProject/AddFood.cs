@@ -143,6 +143,11 @@ namespace GreatProject
 
         private void button_for_sort_Click(object sender, EventArgs e)
         {
+            if(list_of_value.Count <=1)
+            {
+                MessageBox.Show("У списку мало об'єктів для сортування");
+                return;
+            }
             listBox1.Items.Clear();
             list_of_value.Sort(new Compare_Food());
             this.dispalay_to_list_box();
@@ -154,12 +159,14 @@ namespace GreatProject
             string path = "food.dat";
             if (temp.ReadFile(path) is not null)
             {
-                foreach (Food tem in temp.ReadFile("food.dat"))
+                list_of_value = temp.ReadFile(path);
+                if(list_of_value.Count == 0)
                 {
-                    list_of_value.Add(tem);
+                    MessageBox.Show("Щось пішло не так");
                 }
                 this.dispalay_to_list_box();
                 (sender as Button).Enabled = false;
+                return;
             }
             inform_about_add file_read = (path) => { return ($"У файлі - {path} пусто"); };
             MessageBox.Show(file_read(path));
@@ -176,10 +183,27 @@ namespace GreatProject
         {
             if (list_of_value.Count !=0)
             {
-                list_of_value[list_of_value.Count - 1] = null;
+                list_of_value.RemoveAt(list_of_value.Count - 1);
+                this.dispalay_to_list_box();
+                return;
             }
-            this.dispalay_to_list_box();
+            MessageBox.Show("У списку 0 об'єктів");
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            List<Food> test_list = new List<Food>()
+            {
+                 {new Food("Apple", Convert.ToDateTime("1/01/2023")) },
+                 {new Food("pear", Convert.ToDateTime("5/01/2023")) },
+                 {new Food("watermelon", Convert.ToDateTime("1/3/2027")) },
+                 {new Food("Strawberry", Convert.ToDateTime("5/12/2024")) },
+                 {new Food("butter", Convert.ToDateTime("1/7/2025")) },
+            };
+            list_of_value = test_list;
+            this.dispalay_to_list_box();
+            (sender as Button).Enabled = false;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace GreatProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OurWarehouse));
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,9 +42,9 @@ namespace GreatProject
             // button1
             // 
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(343, 199);
+            this.button1.Location = new System.Drawing.Point(224, 286);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 29);
+            this.button1.Size = new System.Drawing.Size(151, 48);
             this.button1.TabIndex = 0;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,7 +66,7 @@ namespace GreatProject
             // 
             this.button2.Location = new System.Drawing.Point(97, 99);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(121, 42);
             this.button2.TabIndex = 2;
             this.button2.Text = "Go to adding";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@ namespace GreatProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 61);
+            this.label2.Location = new System.Drawing.Point(339, 62);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
@@ -103,10 +104,10 @@ namespace GreatProject
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(418, 98);
+            this.button3.Location = new System.Drawing.Point(382, 99);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 25);
+            this.button3.Size = new System.Drawing.Size(170, 52);
             this.button3.TabIndex = 6;
             this.button3.Text = "Chief";
             this.button3.UseVisualStyleBackColor = true;
@@ -125,10 +126,10 @@ namespace GreatProject
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OurWarehouse";
             this.Text = "OurWarehouse";
             this.Load += new System.EventHandler(this.Form1_Load);
-           // this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

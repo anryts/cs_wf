@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace GreatProject
 {
-   
 
     public partial class OurWarehouse : Form
     {
@@ -33,7 +32,7 @@ namespace GreatProject
         {         
             Form_For_Registation temp = new();
             temp.ShowDialog();
-           
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,7 +51,6 @@ namespace GreatProject
             
             if (type_item == "Food" )
             {
-               
                 AddFood temp = new AddFood();
                 temp.Show();
             }
@@ -66,6 +64,7 @@ namespace GreatProject
                 ForUpdates temp = new ForUpdates();
                 temp.Show();
             }
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -74,9 +73,8 @@ namespace GreatProject
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            type_item = comboBox1.SelectedItem.ToString();           
-
+        {    
+                type_item = comboBox1.SelectedItem.ToString();
         }
 
         private void label2_Click(object sender, EventArgs e)

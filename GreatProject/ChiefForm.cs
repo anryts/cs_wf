@@ -32,6 +32,12 @@ namespace GreatProject
             {
                 listBox2.Items.Add(Date.chief_of_warehouse.PropertyStackMaterials.Pop().Print_Info());
             }
+
+            progressBar1.MouseEnter += (s, a) =>
+            {
+                t.SetToolTip(progressBar1, $"Capacity:{progressBar1.Value}/{progressBar1.Maximum}");
+            };
+
             progressBar2.MouseEnter += (s, a) => 
             { 
                 t.SetToolTip(progressBar2, $"Capacity:{progressBar2.Value}/{progressBar2.Maximum}");   
@@ -44,6 +50,8 @@ namespace GreatProject
         {
             progressBar2.Maximum = Date.Property_for_warehouse_materials.Property_for_max_cout;
             progressBar2.Value = Date.Property_for_warehouse_materials.Property_for_current_number;
+            progressBar1.Maximum = 5;
+            progressBar1.Value = Date.Property_for_warehouse.list_of_food.Count();
         }
 
         private void list_box_for_food_warehouse(object sender, EventArgs e)
@@ -54,19 +62,20 @@ namespace GreatProject
         private void button_write_in_file_Click(object sender, EventArgs e)
         {
             BIN_file<Food> temp = new();
+            BIN_file<Materials> temp1 = new();
+            bool check = true;
+            if (Date.Property_for_warehouse_materials.list_of_materials.Count == 0 || Date.Property_for_warehouse.list_of_food.Count ==0)
+                check = false;
+             temp1.WriteFile(Date.Property_for_warehouse_materials.list_of_materials, "materials.dat");
+            
             temp.WriteFile(Date.Property_for_warehouse.list_of_food, "food.dat");
-            //Write_in_File temp = new();
-            //List<IPrintable> list_of_value = new();  
-            //foreach (Food tem in Date.Property_for_warehouse.list_of_food)
-            //{
-            //    list_of_value.Add(tem);
-            //}
-            //foreach (Materials tem in Date.Property_for_warehouse_materials.list_of_materials)
-            //{
-            //    list_of_value.Add(tem);
-            //}
-            //temp.ProcessWithData(list_of_value);
-
+            if (check)
+            {
+                MessageBox.Show("Записано у два файли\n");
+                return;
+            }
+            MessageBox.Show("Один з складів, пустий");
+            (sender as Button).Enabled = false;
         }
 
         private void button_for_logs_writing(object sender, EventArgs e)
@@ -79,6 +88,8 @@ namespace GreatProject
                     sw.WriteLine(temp.ToString());
                 }
             }
+            MessageBox.Show("Записано");
+            (sender as Button).Enabled = false;
         }
 
         private void button_Home_Click(object sender, EventArgs e)
@@ -98,7 +109,7 @@ namespace GreatProject
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Convert.ToString(Date.Property_for_dictionary[textBox1.Text]
+           
         }
 
         private void button_for_search_Click(object sender, EventArgs e)

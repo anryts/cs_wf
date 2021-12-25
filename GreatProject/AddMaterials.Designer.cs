@@ -42,6 +42,7 @@ namespace GreatProject
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_for_name
@@ -100,15 +101,15 @@ namespace GreatProject
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(328, 23);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(377, 186);
+            this.listBox1.Size = new System.Drawing.Size(420, 264);
             this.listBox1.TabIndex = 9;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(85, 147);
+            this.button1.Location = new System.Drawing.Point(85, 145);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(121, 41);
             this.button1.TabIndex = 10;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
@@ -116,9 +117,9 @@ namespace GreatProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(365, 310);
+            this.button2.Location = new System.Drawing.Point(354, 475);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 50);
+            this.button2.Size = new System.Drawing.Size(172, 50);
             this.button2.TabIndex = 11;
             this.button2.Text = "Home";
             this.button2.UseVisualStyleBackColor = true;
@@ -126,10 +127,10 @@ namespace GreatProject
             // 
             // button_for_sort
             // 
-            this.button_for_sort.Location = new System.Drawing.Point(328, 214);
+            this.button_for_sort.Location = new System.Drawing.Point(328, 298);
             this.button_for_sort.Margin = new System.Windows.Forms.Padding(2);
             this.button_for_sort.Name = "button_for_sort";
-            this.button_for_sort.Size = new System.Drawing.Size(77, 27);
+            this.button_for_sort.Size = new System.Drawing.Size(95, 46);
             this.button_for_sort.TabIndex = 12;
             this.button_for_sort.Text = "Sort";
             this.button_for_sort.UseVisualStyleBackColor = true;
@@ -137,10 +138,10 @@ namespace GreatProject
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(33, 328);
+            this.button3.Location = new System.Drawing.Point(21, 298);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 32);
+            this.button3.Size = new System.Drawing.Size(147, 46);
             this.button3.TabIndex = 13;
             this.button3.Text = "Write in warehouse";
             this.button3.UseVisualStyleBackColor = true;
@@ -148,9 +149,9 @@ namespace GreatProject
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(557, 214);
+            this.button4.Location = new System.Drawing.Point(615, 298);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 27);
+            this.button4.Size = new System.Drawing.Size(120, 46);
             this.button4.TabIndex = 14;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
@@ -158,20 +159,31 @@ namespace GreatProject
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(429, 215);
+            this.button5.Location = new System.Drawing.Point(439, 299);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 26);
+            this.button5.Size = new System.Drawing.Size(154, 45);
             this.button5.TabIndex = 15;
-            this.button5.Text = "Write in file";
+            this.button5.Text = "Write from file(deser)";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(85, 214);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(121, 46);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "Test";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // AddMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 406);
+            this.ClientSize = new System.Drawing.Size(815, 573);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -208,5 +220,6 @@ namespace GreatProject
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

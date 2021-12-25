@@ -154,11 +154,15 @@ namespace GreatProject
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             if (list_of_value.Count != 0)
             {
-                list_of_value[list_of_value.Count - 1] = null;
+                list_of_value.RemoveAt(list_of_value.Count - 1);
+                this.print_to_list_box();
+                return;
             }
-            this.print_to_list_box();
+            MessageBox.Show("У списку 0 об'єктів");
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -185,6 +189,21 @@ namespace GreatProject
         private void AddMaterials_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            List<Materials> test_list = new List<Materials>()
+            {
+                 {new Materials("stone", 100, 2) },
+                 {new Materials("brick", 300, 10) },
+                 {new Materials("cement",50, 1) },
+                 {new Materials("clay", 600, 42) },
+                 {new Materials("wood", 12,8) },
+            };
+            list_of_value = test_list;
+            this.print_to_list_box();
+            (sender as Button).Enabled = false;
         }
     }
 }

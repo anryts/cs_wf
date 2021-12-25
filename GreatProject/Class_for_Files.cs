@@ -13,9 +13,16 @@ namespace GreatProject
         BinaryFormatter formatter = new BinaryFormatter();
         public void WriteFile(List<T> example_gen, string path)
         {
-            using (FileStream fs = new FileStream(path, FileMode.Append))
+            try
             {
-                formatter.Serialize(fs, example_gen);
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    formatter.Serialize(fs, example_gen);
+                }
+            }
+            catch
+            {
+                return;
             }
         } 
 
@@ -24,10 +31,18 @@ namespace GreatProject
 
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
-                if (fs.Length != 0)
+                try
                 {
-                    List<T> deserilizeList = (List<T>)formatter.Deserialize(fs);
-                    return deserilizeList;
+                    if (fs.Length != 0)
+                    {
+                        List<T> deserilizeList = new List<T>(); 
+                        deserilizeList = (List<T>)formatter.Deserialize(fs);
+                        return deserilizeList;
+                    }
+                }
+                catch
+                {
+                    return null;
                 }
                 return null;
             }

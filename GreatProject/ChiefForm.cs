@@ -83,7 +83,7 @@ namespace GreatProject
             string writePath = @"C:\C#_dir\logs.txt";
             foreach (var temp in Date.Property_for_dictionary)
             {
-                using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
                 {
                     sw.WriteLine(temp.ToString());
                 }

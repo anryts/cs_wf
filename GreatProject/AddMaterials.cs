@@ -10,7 +10,7 @@ public partial class AddMaterials : Form
     private List<Materials> list_of_value = new();
 
 
-    private readonly inform_about_add to_materials = delegate(object example)
+    private readonly InformAboutAdd to_materials = delegate(object example)
     {
         var list_of = example as List<Materials>;
         return $"Name:{list_of.Last().Name}\nCount:{list_of.Count()}";
@@ -161,7 +161,7 @@ public partial class AddMaterials : Form
             (sender as Button).Enabled = false;
         }
 
-        inform_about_add file_read = path => { return $"У файлі - {path} пусто"; };
+        InformAboutAdd file_read = path => { return $"У файлі - {path} пусто"; };
         MessageBox.Show(file_read(path));
     }
 

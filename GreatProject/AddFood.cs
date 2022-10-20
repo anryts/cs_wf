@@ -72,7 +72,7 @@ public partial class AddFood : Form
             return;
         }
 
-        inform_about_add to_food = delegate(object example)
+        InformAboutAdd to_food = delegate(object example)
         {
             var list_of = example as List<Food>;
             return
@@ -145,7 +145,7 @@ public partial class AddFood : Form
             return;
         }
 
-        inform_about_add file_read = path => { return $"У файлі - {path} пусто"; };
+        InformAboutAdd file_read = path => { return $"У файлі - {path} пусто"; };
         MessageBox.Show(file_read(path));
         //Read_from_file temp = new();
         //temp.ReadFile();

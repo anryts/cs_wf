@@ -126,5 +126,5 @@ internal static class Date
 
     public static warehouse_for_materials Property_for_warehouse_materials { get; } = new();
 
-    public static warehouse_for_food Property_for_warehouse { get; } = new();
+    public static WarehouseForFood Property_for_warehouse { get; } = new();
 }

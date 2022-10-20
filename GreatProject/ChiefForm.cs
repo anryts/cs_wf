@@ -36,8 +36,8 @@ public partial class ChiefForm : Form
 
     private void LoadEvent(object sender, EventArgs e)
     {
-        progressBar2.Maximum = Date.Property_for_warehouse_materials.Property_for_max_cout;
-        progressBar2.Value = Date.Property_for_warehouse_materials.Property_for_current_number;
+        progressBar2.Maximum = Date.Property_for_warehouse_materials.PropertyForMaxCout;
+        progressBar2.Value = Date.Property_for_warehouse_materials.PropertyForCurrentNumber;
         progressBar1.Maximum = 5;
         progressBar1.Value = Date.Property_for_warehouse.list_of_food.Count();
     }

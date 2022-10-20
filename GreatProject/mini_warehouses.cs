@@ -3,66 +3,70 @@ using System.Linq;
 
 namespace GreatProject;
 
-internal delegate string inform_about_add(object ex);
+internal delegate string InformAboutAdd(object ex);
 
 internal class warehouse_for_materials : warehouse
 {
-    private int current_numbers_of_product;
-    public List<Materials> list_of_materials;
-    private int max_number_of_product;
+    private int _currentNumbersOfProduct;
+    public readonly List<Materials> list_of_materials;
+    private int _maxNumberOfProduct;
 
     public warehouse_for_materials()
     {
         list_of_materials = new List<Materials>();
-        Property_for_max_cout = 5;
+        PropertyForMaxCout = 5;
     }
 
 
-    public int Property_for_current_number
+    public int PropertyForCurrentNumber
     {
         get => list_of_materials.Count;
-        set => current_numbers_of_product = list_of_materials.Count();
-    }
-
-    public int Property_for_max_cout
-    {
-        get => max_number_of_product;
         set
         {
-            if (value is int) max_number_of_product = value;
+            _currentNumbersOfProduct = value;
+            _currentNumbersOfProduct = list_of_materials.Count();
         }
     }
 
-    public event inform_about_add out_of_max_count; //івент для керування к-сті об'єктів
-
-    public void Add_to_list_materials(List<Materials> input_list)
+    public int PropertyForMaxCout
     {
-        foreach (var temp in input_list)
+        get => _maxNumberOfProduct;
+        set { _maxNumberOfProduct = value; }
+    }
+
+    /// <summary>
+    /// івент для керування к-сті об'єктів
+    /// </summary>
+    public event InformAboutAdd OutOfMaxCount; 
+
+    public void Add_to_list_materials(List<Materials> inputList)
+    {
+        foreach (var temp in inputList)
         {
-            if (list_of_materials.Count < Property_for_max_cout) list_of_materials.Add(temp);
+            if (list_of_materials.Count < PropertyForMaxCout) list_of_materials.Add(temp);
             break;
         }
     }
 }
 
-internal class warehouse_for_food : warehouse
+internal class WarehouseForFood : warehouse
 {
-    public List<Food> list_of_food;
+    public readonly List<Food> list_of_food;
 
 
-    public warehouse_for_food()
+    public WarehouseForFood()
     {
         list_of_food = new List<Food>();
         var temperatury_in_warehouse = 0;
     }
 
-    public List<Food> List_of_food
+    public List<Food> ListOfFood
     {
         set => Add_to_list_of_food(value);
-        get => List_of_food;
+        get => ListOfFood;
     }
 
-    public int Temperatury_in_warehouse { get; private set; }
+    public int TemperaturyInWarehouse { get; private set; }
 
     public void Add_to_list_of_food(List<Food> input_list)
     {

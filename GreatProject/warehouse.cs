@@ -18,14 +18,14 @@ internal class warehouse
     {
         Name_of_warehouse = name;
         Max_number_of_items = max_number;
-        var wrhs_for_food = new warehouse_for_food();
+        var wrhs_for_food = new WarehouseForFood();
     }
 
     public string Name_of_warehouse { set; get; }
 
     public int Max_number_of_items { get; set; }
 
-    public warehouse_for_food Warehouse_for_food
+    public WarehouseForFood Warehouse_for_food
     {
         set => Warehouse_for_food = value;
     }

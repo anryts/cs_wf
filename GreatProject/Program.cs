@@ -7,15 +7,15 @@ internal static class Program
 
 {
     /// <summary>
-    ///     Главная точка входа для приложения.
+    ///     Hello world.
     /// </summary>
     [STAThread]
     private static void Main()
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        OurWarehouse Big_Dream = new();
-        Application.Run(Big_Dream);
+        OurWarehouse bigDream = new();
+        Application.Run(bigDream);
         //warehouse BigDream = new warehouse("Big Dream", 100);
     }
 }

@@ -13,15 +13,9 @@ internal class BinFile<T> where T : Item
 
     public void WriteFile(List<T> exampleGen, string path)
     {
-        try
+        using (var fs = new FileStream(path, FileMode.Open))
         {
-            using (var fs = new FileStream(path, FileMode.Open))
-            {
-                _formatter.Serialize(fs, exampleGen);
-            }
-        }
-        catch
-        {
+            _formatter.Serialize(fs, exampleGen);
         }
     }
 
@@ -33,9 +27,8 @@ internal class BinFile<T> where T : Item
             {
                 if (fs.Length != 0)
                 {
-                    List<T> deserilizeList;
-                    deserilizeList = (List<T>)_formatter.Deserialize(fs);
-                    return deserilizeList;
+                    var deserializeList = (List<T>)_formatter.Deserialize(fs);
+                    return deserializeList;
                 }
             }
             catch
@@ -50,10 +43,11 @@ internal class BinFile<T> where T : Item
 
 internal class ReadFromFile
 {
+    // change direction of folder in ReadPath TODO
     private const string ReadPath = @"C:\C#_dir\1.txt";
+
     public void ReadFile()
     {
-        
         using (StreamReader r = new(ReadPath, Encoding.Default))
         {
             string line;
@@ -62,33 +56,6 @@ internal class ReadFromFile
                 if (line.Contains("Food"))
                 {
                     Food temp = new();
-                    // temp.Name = Convert.ToString(line.TakeWhile((symbol_letter)=>Char.IsLetter(symbol_letter)));
-                    //int j = 0;
-                    //for (int i = 4; i < line.Length; i++)
-                    //{
-                    //    if (Char.IsLetter(line[i]))
-                    //    {                           
-                    //        for (j = i; !Char.IsWhiteSpace(line[j]); j++)
-                    //        {
-
-                    //        }
-                    //        temp.Name = line.Substring(i, j - i);
-                    //        i = j;
-
-                    
-                    
-                    //    }
-                    //    if (Char.IsDigit(line[i]) && j != 0)
-                    //    {
-                    //        j = 0;
-                    //        for (j = i; j < line.Length; j++)
-                    //        {
-
-                    //        }
-                    //        temp.Expiration_date = Convert.ToDateTime(line.Substring(i, j - i));
-                    //        i = j;
-                    //    }
-                    //}
                     var onlyLetters = new string(line.Substring(5, line.Length - 5).Where(char.IsLetter).ToArray());
                     var onlyDateTime = new string(line.Substring(10, line.Length - 10)
                         .Where(c => char.IsDigit(c) || c == '/').ToArray());
@@ -97,7 +64,7 @@ internal class ReadFromFile
                     Date.Property_for_warehouse.list_of_food.Add(temp);
                 }
 
-                if (line.Contains("Materials"))
+                if (!line.Contains("Materials")) continue;
                 {
                     Materials temp = new();
                     Date.Property_for_warehouse_materials.list_of_materials.Add(temp);

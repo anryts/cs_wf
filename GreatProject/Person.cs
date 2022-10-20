@@ -1,50 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GreatProject
+namespace GreatProject;
+
+internal class Person
 {
-    class Person
+    private readonly string _idPerson;
+
+    private readonly Random _rd = new();
+    private string _nameOfPerson;
+
+    protected Person()
     {
-        protected string name_of_person;
+        _nameOfPerson = "unknown";
+        _idPerson = Convert.ToString(_rd.Next(100000, 999999));
+    }
 
-        readonly string id_person;
+    private Person(string name)
+    {
+        NameOfPerson = name;
+        _idPerson = Convert.ToString(_rd.Next(100000, 999999));
+    }
 
-        Random rd = new();
-
-        public string Name_of_person
+    public string NameOfPerson
+    {
+        get => _nameOfPerson;
+        set
         {
-            get { return name_of_person; }
-            set {
-
-                if (value.Length != 0)
-                {
-                    name_of_person = value;
-                }
-                else
-                {
-                    //throw new ZeroLenghtException("Lenght can not = 0", this);
-                }
+            if (value.Length != 0)
+            {
+                _nameOfPerson = value;
             }
+            //throw new ZeroLenghtException("Lenght can not = 0", this);
         }
+    }
 
-       public Person()
-        {
-            name_of_person = "unknown";
-            id_person = Convert.ToString(rd.Next(100000, 999999));
-
-        }
-        Person (string name)
-        {
-            Name_of_person = name;
-            id_person = Convert.ToString(rd.Next(100000,999999));
-        }
-
-        public virtual void Print()
-        {
-            Console.WriteLine($"Ім'я:{Name_of_person}\nID:{id_person}");
-        }
+    public virtual void Print()
+    {
+        Console.WriteLine($"Ім'я:{NameOfPerson}\n" +
+                          $"ID:{_idPerson}");
     }
 }

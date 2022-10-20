@@ -1,42 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GreatProject
+namespace GreatProject;
+
+internal class ChiefTransferEventArgs : EventArgs
 {
-    class ChiefTransferEventArgs : EventArgs
+    public ChiefTransferEventArgs(Chief someOther)
     {
-
-        public Chief GiveChief { get;}
-
-        public ChiefTransferEventArgs(Chief some_other)
-        {
-                 GiveChief = some_other;
-        }
-
-        public override string ToString()
-        {
-            return $"Був викликаний івент, для об'єкту{nameof(this.GiveChief)}\nІм'я{this.GiveChief.Name_of_person}";
-        }
-
+        GiveChief = someOther;
     }
 
-    class TransferChief
+    public Chief GiveChief { get; }
+
+    public override string ToString()
     {
-        public event EventHandler<ChiefTransferEventArgs> example_event;
+        return $"Був викликаний івент, для об'єкту{nameof(GiveChief)}\nІм'я{GiveChief.NameOfPerson}";
+    }
+}
 
-        void OnMethodExample( ChiefTransferEventArgs e)
-        {
-            example_event?.Invoke(this, e);
-           
-        }
+internal class TransferChief
+{
+                    public event EventHandler<ChiefTransferEventArgs> ExampleEvent;
 
-        public void SimulateTransfer (Chief example)
-        {
-            var e = new ChiefTransferEventArgs(example);
-            OnMethodExample(e);
-        }
+    private void OnMethodExample(ChiefTransferEventArgs e)
+    {
+        ExampleEvent?.Invoke(this, e);
+    }
+
+    public void SimulateTransfer(Chief example)
+    {
+        var e = new ChiefTransferEventArgs(example);
+        OnMethodExample(e);
     }
 }

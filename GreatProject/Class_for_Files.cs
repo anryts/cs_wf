@@ -4,112 +4,105 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace GreatProject
+namespace GreatProject;
+
+internal class BinFile<T> where T : Item
 {
-    class BIN_file<T> where T: Item
+    private readonly BinaryFormatter _formatter = new();
+
+    public void WriteFile(List<T> exampleGen, string path)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        public void WriteFile(List<T> example_gen, string path)
+        try
+        {
+            using (var fs = new FileStream(path, FileMode.Open))
+            {
+                _formatter.Serialize(fs, exampleGen);
+            }
+        }
+        catch
+        {
+        }
+    }
+
+    public List<T> ReadFile(string path)
+    {
+        using (var fs = new FileStream(path, FileMode.OpenOrCreate))
         {
             try
             {
-                using (FileStream fs = new FileStream(path, FileMode.Open))
+                if (fs.Length != 0)
                 {
-                    formatter.Serialize(fs, example_gen);
+                    List<T> deserilizeList;
+                    deserilizeList = (List<T>)_formatter.Deserialize(fs);
+                    return deserilizeList;
                 }
             }
             catch
             {
-                return;
-            }
-        } 
-
-        public List<T> ReadFile(string path)
-        {
-
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-            {
-                try
-                {
-                    if (fs.Length != 0)
-                    {
-                        List<T> deserilizeList = new List<T>(); 
-                        deserilizeList = (List<T>)formatter.Deserialize(fs);
-                        return deserilizeList;
-                    }
-                }
-                catch
-                {
-                    return null;
-                }
                 return null;
             }
+
+            return null;
         }
     }
+}
 
-
-
-    class Read_from_file
+internal class ReadFromFile
+{
+    private const string ReadPath = @"C:\C#_dir\1.txt";
+    public void ReadFile()
     {
-        public void ReadFile()
+        
+        using (StreamReader r = new(ReadPath, Encoding.Default))
         {
-            string readPath = @"C:\C#_dir\1.txt";
-            using (StreamReader r = new(readPath, System.Text.Encoding.Default))
+            string line;
+            while ((line = r.ReadLine()) != null)
             {
-                string line;
-                while ((line = r.ReadLine()) != null)
+                if (line.Contains("Food"))
                 {
-                    if (line.Contains("Food"))
-                    {
-                        Food temp = new();
-                        // temp.Name = Convert.ToString(line.TakeWhile((symbol_letter)=>Char.IsLetter(symbol_letter)));
-                        //int j = 0;
-                        //for (int i = 4; i < line.Length; i++)
-                        //{
-                        //    if (Char.IsLetter(line[i]))
-                        //    {                           
-                        //        for (j = i; !Char.IsWhiteSpace(line[j]); j++)
-                        //        {
+                    Food temp = new();
+                    // temp.Name = Convert.ToString(line.TakeWhile((symbol_letter)=>Char.IsLetter(symbol_letter)));
+                    //int j = 0;
+                    //for (int i = 4; i < line.Length; i++)
+                    //{
+                    //    if (Char.IsLetter(line[i]))
+                    //    {                           
+                    //        for (j = i; !Char.IsWhiteSpace(line[j]); j++)
+                    //        {
 
-                        //        }
-                        //        temp.Name = line.Substring(i, j - i);
-                        //        i = j;
+                    //        }
+                    //        temp.Name = line.Substring(i, j - i);
+                    //        i = j;
 
-                        //    }
-                        //    if (Char.IsDigit(line[i]) && j != 0)
-                        //    {
-                        //        j = 0;
-                        //        for (j = i; j < line.Length; j++)
-                        //        {
+                    
+                    
+                    //    }
+                    //    if (Char.IsDigit(line[i]) && j != 0)
+                    //    {
+                    //        j = 0;
+                    //        for (j = i; j < line.Length; j++)
+                    //        {
 
-                        //        }
-                        //        temp.Expiration_date = Convert.ToDateTime(line.Substring(i, j - i));
-                        //        i = j;
-                        //    }
-                        //}
-                        var onlyLetters = new String(line.Substring(5, line.Length - 5).Where(Char.IsLetter).ToArray());
-                        var onlyDateTime = new String(line.Substring(10, line.Length - 10).Where(c => Char.IsDigit(c) || c == '/').ToArray());
-                        temp.Name = onlyLetters;
-                        temp.Expiration_date = Convert.ToDateTime(onlyDateTime);
-                        Date.Property_for_warehouse.list_of_food.Add(temp);
+                    //        }
+                    //        temp.Expiration_date = Convert.ToDateTime(line.Substring(i, j - i));
+                    //        i = j;
+                    //    }
+                    //}
+                    var onlyLetters = new string(line.Substring(5, line.Length - 5).Where(char.IsLetter).ToArray());
+                    var onlyDateTime = new string(line.Substring(10, line.Length - 10)
+                        .Where(c => char.IsDigit(c) || c == '/').ToArray());
+                    temp.Name = onlyLetters;
+                    temp.Expiration_date = Convert.ToDateTime(onlyDateTime);
+                    Date.Property_for_warehouse.list_of_food.Add(temp);
+                }
 
-                    }
-                    if (line.Contains("Materials"))
-                    {
-                        Materials temp = new();
-                        Date.Property_for_warehouse_materials.list_of_materials.Add(temp);
-                    }
+                if (line.Contains("Materials"))
+                {
+                    Materials temp = new();
+                    Date.Property_for_warehouse_materials.list_of_materials.Add(temp);
                 }
             }
         }
-
-
     }
-
 }
-   
- 
-   
-

@@ -1,69 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GreatProject
+namespace GreatProject;
+
+internal class ZeroLenghtException : Exception
 {
-    class ZeroLenghtException:Exception
+    public ZeroLenghtException(string message, Item temp) : base(message)
     {
-
-	   public Item Value
-        {
-            get;
-        }
-
-       public ZeroLenghtException(string message,Item temp): base( message)
-        {
-            Value = temp;
-        }
-       
+        Value = temp;
     }
 
-    class CapacityException : Exception
-    {
-        public Item Value
-        {
-            get;
-        }
+    public Item Value { get; }
+}
 
-        public CapacityException(string message, Materials value) :base(message)
-        {
-            Value = value;
-        }
+internal class CapacityException : Exception
+{
+    public CapacityException(string message, Materials value) : base(message)
+    {
+    }
+}
+
+internal class ExpirationDateException : Exception
+{
+    public ExpirationDateException(string message, Food temp) : base(message)
+    {
+        TempForException = temp;
     }
 
-    class ExpirationDateException : Exception
+    public ExpirationDateException(string message, Exception innerException) : base(message)
     {
-        public Food Temp_for_exception
-        {
-            get;
-        
-            //get;
-        }
-        public ExpirationDateException(string message, Food temp) : base(message)
-        {
-             Temp_for_exception = temp;
-        }
-
-        public ExpirationDateException(string message, Exception InnerException) : base(message)
-        {
-
-        }
     }
 
-    class AgeException : Exception
+    public Food TempForException
     {
-        public AgeException(string message) :base(message)
-        {
+        get;
 
-        }
+    }
+}
 
-    public AgeException (string message, Exception InnerException) :base(message, InnerException)
-        {
-
-        }
+internal class AgeException : Exception
+{
+    public AgeException(string message) : base(message)
+    {
     }
 
+    public AgeException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
 }

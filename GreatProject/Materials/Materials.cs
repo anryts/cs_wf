@@ -11,7 +11,6 @@ internal class Materials : Item, IPrintable
 
     public Materials()
     {
-        
     }
 
 
@@ -46,23 +45,22 @@ internal class Materials : Item, IPrintable
         return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
     }
 
-/// <summary>
-/// порівняння об'єктів за ціною
-/// </summary>
-/// <param name="ex"></param>
-/// <returns> якщо об'єкт у якого був визваний цей метод, більший вертажться true
-/// </returns>
-    public bool CompareTo(Materials ex) 
+    /// <summary>
+    /// порівняння об'єктів за ціною
+    /// </summary>
+    /// <param name="ex"></param>
+    /// <returns> якщо об'єкт у якого був визваний цей метод, більший вертажться true
+    /// </returns>
+    public bool CompareTo(Materials ex)
     {
         if (price_of_Materials() > ex.price_of_Materials())
             return true;
         return false;
     }
-
+    
     public double price_of_Materials()
     {
-        if (Convert.ToDouble(Capacity / Weight) >
-            1) //вартість об'єкту повинна розраховуватись від його густини, чим більша густина тим більша ціна, якось так)
+        if (Convert.ToDouble(Capacity / Weight) > 1)
             return Capacity * Weight * 1.5;
         return Capacity * Weight * 2;
     }

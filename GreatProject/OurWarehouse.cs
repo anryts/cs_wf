@@ -7,7 +7,7 @@ namespace GreatProject;
 public partial class OurWarehouse : Form
 {
     //static  warehouse_for_food mini_dream_food = new warehouse_for_food();       
-    private string type_item;
+    private string _typeItem;
 
     public OurWarehouse()
     {
@@ -15,7 +15,7 @@ public partial class OurWarehouse : Form
 
         comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         KeyPreview = true;
-        Date.Event_Handler = copying_to_Chief;
+        Date.EventHandler = copying_to_Chief;
         KeyDown += (s, e) =>
         {
             if (e.KeyValue == (char)Keys.Enter) button2.PerformClick();
@@ -43,20 +43,26 @@ public partial class OurWarehouse : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        if (type_item == "Food")
+        switch (_typeItem)
         {
-            var temp = new AddFood();
-            temp.Show();
-        }
-        else if (type_item == "Materials")
-        {
-            var temp = new AddMaterials();
-            temp.Show();
-        }
-        else
-        {
-            var temp = new ForUpdates();
-            temp.Show();
+            case "Food":
+            {
+                var temp = new AddFood();
+                temp.Show();
+                break;
+            }
+            case "Materials":
+            {
+                var temp = new AddMaterials();
+                temp.Show();
+                break;
+            }
+            default:
+            {
+                var temp = new ForUpdates();
+                temp.Show();
+                break;
+            }
         }
     }
 
@@ -66,7 +72,7 @@ public partial class OurWarehouse : Form
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        type_item = comboBox1.SelectedItem.ToString();
+        _typeItem = comboBox1.SelectedItem.ToString();
     }
 
     private void label2_Click(object sender, EventArgs e)
@@ -83,7 +89,7 @@ public partial class OurWarehouse : Form
 
     private void button_for_Chief_Click(object sender, EventArgs e)
     {
-        if (textBox1.Text == Date.chief_of_warehouse.PaswordProperty)
+        if (textBox1.Text == Date.ChiefOfWarehouse.PasswordProperty)
         {
             MessageBox.Show("Welcome!");
             ChiefForm temp = new();
@@ -102,29 +108,29 @@ public partial class OurWarehouse : Form
     // }
 
 
-    private void copying_to_Chief(Chief some_other)
+    private void copying_to_Chief(Chief someOther)
     {
-        Date.chief_of_warehouse.NameOfPerson = some_other.NameOfPerson;
-        Date.chief_of_warehouse.PaswordProperty = some_other.PaswordProperty;
+        Date.ChiefOfWarehouse.NameOfPerson = someOther.NameOfPerson;
+        Date.ChiefOfWarehouse.PasswordProperty = someOther.PasswordProperty;
     }
 }
 
 internal static class Date
 {
-    public delegate void delegate_for_transef(Chief noob);
+    public delegate void DelegateForTransef(Chief noob);
 
-    public static HashSet<string> name = new();
+    public static HashSet<string> Name = new();
 
-    public static SortedList<int, string> sorted_list_example = new();
-
-
-    public static Chief chief_of_warehouse = new();
-    public static delegate_for_transef Event_Handler;
+    public static SortedList<int, string> SortedListExample = new();
 
 
-    public static Dictionary<string, DateTime> Property_for_dictionary { get; } = new();
+    public static Chief ChiefOfWarehouse = new();
+    public static DelegateForTransef EventHandler;
 
-    public static warehouse_for_materials Property_for_warehouse_materials { get; } = new();
 
-    public static WarehouseForFood Property_for_warehouse { get; } = new();
+    public static Dictionary<string, DateTime> PropertyForDictionary { get; } = new();
+
+    public static warehouse_for_materials PropertyForWarehouseMaterials { get; } = new();
+
+    public static WarehouseForFood PropertyForWarehouse { get; } = new();
 }

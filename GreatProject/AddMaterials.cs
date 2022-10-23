@@ -43,7 +43,7 @@ public partial class AddMaterials : Form
         Materials value = new();
         try
         {
-            if (!Date.name.Contains(textBox_for_name.Text))
+            if (!Date.Name.Contains(textBox_for_name.Text))
             {
                 value.Name = textBox_for_name.Text;
             }
@@ -126,12 +126,12 @@ public partial class AddMaterials : Form
     {
         //Date.Property_for_warehouse_materials.out_of_max_count += out_of_max_count;
         foreach (var temp in list_of_value)
-            if (!Date.name.Contains(temp.Name))
+            if (!Date.Name.Contains(temp.Name))
             {
-                Date.name.Add(temp.Name);
-                Date.sorted_list_example.Add(temp.price_of_item(), temp.Name);
-                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
-                Date.Property_for_warehouse_materials.list_of_materials.Add(temp);
+                Date.Name.Add(temp.Name);
+                Date.SortedListExample.Add(temp.price_of_item(), temp.Name);
+                Date.PropertyForDictionary.Add(temp.Name, DateTime.Now);
+                Date.PropertyForWarehouseMaterials.list_of_materials.Add(temp);
             }
     }
 

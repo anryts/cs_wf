@@ -13,13 +13,13 @@ public partial class ChiefForm : Form
         InitializeComponent();
         var t = new ToolTip();
 
-        Date.chief_of_warehouse.Add_to_Queue(Date.Property_for_warehouse.list_of_food);
-        Date.chief_of_warehouse.Add_to_Stack(Date.Property_for_warehouse_materials.list_of_materials);
+        Date.ChiefOfWarehouse.Add_to_Queue(Date.PropertyForWarehouse.list_of_food);
+        Date.ChiefOfWarehouse.Add_to_Stack(Date.PropertyForWarehouseMaterials.list_of_materials);
 
-        while (Date.chief_of_warehouse.PropertyQueueFood.Count != 0)
-            listBox1.Items.Add(Date.chief_of_warehouse.PropertyQueueFood.Dequeue().Print_Info());
-        while (Date.chief_of_warehouse.PropertyStackMaterials.Count != 0)
-            listBox2.Items.Add(Date.chief_of_warehouse.PropertyStackMaterials.Pop().Print_Info());
+        while (Date.ChiefOfWarehouse.PropertyQueueFood.Count != 0)
+            listBox1.Items.Add(Date.ChiefOfWarehouse.PropertyQueueFood.Dequeue().Print_Info());
+        while (Date.ChiefOfWarehouse.PropertyStackMaterials.Count != 0)
+            listBox2.Items.Add(Date.ChiefOfWarehouse.PropertyStackMaterials.Pop().Print_Info());
 
         progressBar1.MouseEnter += (s, a) =>
         {
@@ -36,10 +36,10 @@ public partial class ChiefForm : Form
 
     private void LoadEvent(object sender, EventArgs e)
     {
-        progressBar2.Maximum = Date.Property_for_warehouse_materials.PropertyForMaxCout;
-        progressBar2.Value = Date.Property_for_warehouse_materials.PropertyForCurrentNumber;
+        progressBar2.Maximum = Date.PropertyForWarehouseMaterials.PropertyForMaxCout;
+        progressBar2.Value = Date.PropertyForWarehouseMaterials.PropertyForCurrentNumber;
         progressBar1.Maximum = 5;
-        progressBar1.Value = Date.Property_for_warehouse.list_of_food.Count();
+        progressBar1.Value = Date.PropertyForWarehouse.list_of_food.Count();
     }
 
     private void list_box_for_food_warehouse(object sender, EventArgs e)
@@ -51,12 +51,12 @@ public partial class ChiefForm : Form
         BinFile<Food> temp = new();
         BinFile<Materials> temp1 = new();
         var check = true;
-        if (Date.Property_for_warehouse_materials.list_of_materials.Count == 0 ||
-            Date.Property_for_warehouse.list_of_food.Count == 0)
+        if (Date.PropertyForWarehouseMaterials.list_of_materials.Count == 0 ||
+            Date.PropertyForWarehouse.list_of_food.Count == 0)
             check = false;
-        temp1.WriteFile(Date.Property_for_warehouse_materials.list_of_materials, "materials.dat");
+        temp1.WriteFile(Date.PropertyForWarehouseMaterials.list_of_materials, "materials.dat");
 
-        temp.WriteFile(Date.Property_for_warehouse.list_of_food, "food.dat");
+        temp.WriteFile(Date.PropertyForWarehouse.list_of_food, "food.dat");
         if (check)
         {
             MessageBox.Show("Записано у два файли\n");
@@ -70,7 +70,7 @@ public partial class ChiefForm : Form
     private void button_for_logs_writing(object sender, EventArgs e)
     {
         var writePath = @"C:\C#_dir\logs.txt";
-        foreach (var temp in Date.Property_for_dictionary)
+        foreach (var temp in Date.PropertyForDictionary)
             using (var sw = new StreamWriter(writePath, true, Encoding.Default))
             {
                 sw.WriteLine(temp.ToString());
@@ -99,9 +99,9 @@ public partial class ChiefForm : Form
 
     private void button_for_search_Click(object sender, EventArgs e)
     {
-        if (Date.name.Contains(textBox1.Text))
+        if (Date.Name.Contains(textBox1.Text))
             MessageBox.Show(
-                $"Об'єкт {textBox1.Text} знаходиться на складі\nБув доданий о: {Convert.ToString(Date.Property_for_dictionary[textBox1.Text])}");
+                $"Об'єкт {textBox1.Text} знаходиться на складі\nБув доданий о: {Convert.ToString(Date.PropertyForDictionary[textBox1.Text])}");
         else
             MessageBox.Show("Такого об'єкта нема :(");
     }
@@ -109,8 +109,8 @@ public partial class ChiefForm : Form
     private void button4_Click(object sender, EventArgs e)
     {
         if (textBox2.Text.Length == 0) return;
-        if (Date.sorted_list_example.ContainsKey(Convert.ToInt32(textBox2.Text)))
-            MessageBox.Show($"Об'єкт {Date.sorted_list_example[Convert.ToInt32(textBox1.Text)]} знаходиться на складі");
+        if (Date.SortedListExample.ContainsKey(Convert.ToInt32(textBox2.Text)))
+            MessageBox.Show($"Об'єкт {Date.SortedListExample[Convert.ToInt32(textBox1.Text)]} знаходиться на складі");
         else
             MessageBox.Show("Такого об'єкта нема :(");
     }

@@ -22,8 +22,8 @@ internal partial class Form_For_Registation : Form
     private void transfer_event(object s, ChiefTransferEventArgs e)
     {
         MessageBox.Show($"Welcome to the club buddy {e.GiveChief.NameOfPerson}");
-        Date.chief_of_warehouse.NameOfPerson = e.GiveChief.NameOfPerson;
-        Date.chief_of_warehouse.PaswordProperty = e.GiveChief.PaswordProperty;
+        Date.ChiefOfWarehouse.NameOfPerson = e.GiveChief.NameOfPerson;
+        Date.ChiefOfWarehouse.PasswordProperty = e.GiveChief.PasswordProperty;
         Close();
     }
 
@@ -48,7 +48,7 @@ internal partial class Form_For_Registation : Form
         try
         {
             value.NameOfPerson = textBox1.Text;
-            value.PaswordProperty = textBox2.Text;
+            value.PasswordProperty = textBox2.Text;
         }
         catch (ZeroLenghtException ex)
         {
@@ -56,6 +56,6 @@ internal partial class Form_For_Registation : Form
             return;
         }
 
-        if (value.NameOfPerson.Length != 0 && value.PaswordProperty.Length != 0) example.SimulateTransfer(value);
+        if (value.NameOfPerson.Length != 0 && value.PasswordProperty.Length != 0) example.SimulateTransfer(value);
     }
 }

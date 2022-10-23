@@ -5,25 +5,25 @@ namespace GreatProject;
 [Serializable]
 internal class Food : Item, IPrintable
 {
-    private DateTime expiration_date;
+    private DateTime _expirationDate;
 
     public Food()
     {
     }
 
-    public Food(string name, DateTime expiration_date) : base(name)
+    public Food(string name, DateTime expirationDate) : base(name)
     {
-        Expiration_date = expiration_date;
+        ExpirationDate = expirationDate;
     }
 
 
-    public DateTime Expiration_date
+    public DateTime ExpirationDate
     {
-        get => expiration_date;
+        get => _expirationDate;
         set
         {
             if (Fresh_or_not(value))
-                expiration_date = value;
+                _expirationDate = value;
             else
                 throw new ExpirationDateException("Invalid expiration date!", this);
         }
@@ -31,7 +31,7 @@ internal class Food : Item, IPrintable
 
     string IPrintable.GetData()
     {
-        return $"Food {price_of_item()} {Name} {string.Format("{0:MM/dd/yyyy}", Expiration_date)}";
+        return $"Food {price_of_item()} {Name} {string.Format("{0:MM/dd/yyyy}", ExpirationDate)}";
     }
 
     public static bool Fresh_or_not(DateTime value)
@@ -43,13 +43,13 @@ internal class Food : Item, IPrintable
 
     public override int price_of_item()
     {
-        var result = Expiration_date - DateTime.Today;
+        var result = ExpirationDate - DateTime.Today;
         return 100 * result.Days;
     }
 
     public override string Print_Info()
     {
         return
-            $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{string.Format("{0:MM/dd/yyyy}", Expiration_date)}";
+            $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{string.Format("{0:MM/dd/yyyy}", ExpirationDate)}";
     }
 }

@@ -46,7 +46,7 @@ public partial class AddFood : Form
         Food value = new();
         try
         {
-            if (!Date.name.Contains(textBox1.Text))
+            if (!Date.Name.Contains(textBox1.Text))
             {
                 value.Name = textBox1.Text;
             }
@@ -64,7 +64,7 @@ public partial class AddFood : Form
 
         try
         {
-            value.Expiration_date = dateTimePicker1.Value;
+            value.ExpirationDate = dateTimePicker1.Value;
         }
         catch (ExpirationDateException ex)
         {
@@ -76,12 +76,12 @@ public partial class AddFood : Form
         {
             var list_of = example as List<Food>;
             return
-                $"Name: {list_of.Last().Name}\nExpirationDate: {list_of.Last().Expiration_date}\nCount: {list_of.Count()}";
+                $"Name: {list_of.Last().Name}\nExpirationDate: {list_of.Last().ExpirationDate}\nCount: {list_of.Count()}";
         };
 
         _listOfValue.Add(value);
         listBox1.Items.Add(
-            $"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+            $"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.ExpirationDate}");
         if (to_food is not null) MessageBox.Show(to_food(_listOfValue));
         dateTimePicker1.Value = DateTime.Now;
         // value.        
@@ -98,18 +98,18 @@ public partial class AddFood : Form
         foreach (var value in _listOfValue)
             if (value is not null)
                 listBox1.Items.Add(
-                    $"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.Expiration_date}");
+                    $"Name:{value.Name}  Price:{value.price_of_item()}  Expiration Date:{value.ExpirationDate}");
     }
 
     private void write_in_main_list_click(object sender, EventArgs e)
     {
         foreach (var temp in _listOfValue)
-            if (!Date.name.Contains(temp.Name) && !Date.sorted_list_example.ContainsKey(temp.price_of_item()))
+            if (!Date.Name.Contains(temp.Name) && !Date.SortedListExample.ContainsKey(temp.price_of_item()))
             {
-                Date.name.Add(temp.Name);
-                Date.sorted_list_example.Add(temp.price_of_item(), temp.Name);
-                Date.Property_for_dictionary.Add(temp.Name, DateTime.Now);
-                Date.Property_for_warehouse.list_of_food.Add(temp);
+                Date.Name.Add(temp.Name);
+                Date.SortedListExample.Add(temp.price_of_item(), temp.Name);
+                Date.PropertyForDictionary.Add(temp.Name, DateTime.Now);
+                Date.PropertyForWarehouse.list_of_food.Add(temp);
             }
     }
 

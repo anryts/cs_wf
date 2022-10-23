@@ -2,43 +2,42 @@
 
 namespace GreatProject;
 
-internal class warehouse
+internal class Warehouse
 {
-    private int current_number_of_items;
+    private int _currentNumberOfItems;
 
 
-    public warehouse()
+    protected Warehouse()
     {
-        Name_of_warehouse = "Unknown";
-        Max_number_of_items = 0;
-        current_number_of_items = 0;
+        NameOfWarehouse = "Unknown";
+        MaxNumberOfItems = 0;
+        _currentNumberOfItems = 0;
     }
 
-    public warehouse(string name, int max_number)
+    public Warehouse(string name, int maxNumber)
     {
-        Name_of_warehouse = name;
-        Max_number_of_items = max_number;
-        var wrhs_for_food = new WarehouseForFood();
+        NameOfWarehouse = name;
+        MaxNumberOfItems = maxNumber;
     }
 
-    public string Name_of_warehouse { set; get; }
+    public string NameOfWarehouse { set; get; }
 
-    public int Max_number_of_items { get; set; }
+    public int MaxNumberOfItems { get; set; }
 
-    public WarehouseForFood Warehouse_for_food
+    public WarehouseForFood WarehouseForFood
     {
-        set => Warehouse_for_food = value;
+        set => WarehouseForFood = value;
     }
 
-    public int Current_number_of_items
+    public int CurrentNumberOfItems
     {
-        get => current_number_of_items;
+        get => _currentNumberOfItems;
         set
         {
             try
             {
-                if (value <= Max_number_of_items)
-                    current_number_of_items = value;
+                if (value <= MaxNumberOfItems)
+                    _currentNumberOfItems = value;
             }
             catch
             {
@@ -50,6 +49,6 @@ internal class warehouse
     public void Print()
     {
         Console.WriteLine(
-            $"Назва складу: {Name_of_warehouse}\nМаксильна к-сть виробів на складі: {Max_number_of_items}\nПоточна к-сть виробів: {current_number_of_items}");
+            $"Назва складу: {NameOfWarehouse}\nМаксильна к-сть виробів на складі: {MaxNumberOfItems}\nПоточна к-сть виробів: {_currentNumberOfItems}");
     }
 }

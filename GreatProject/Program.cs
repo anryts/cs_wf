@@ -7,7 +7,7 @@ internal static class Program
 
 {
     /// <summary>
-    ///     Hello world.
+    ///     Hello world
     /// </summary>
     [STAThread]
     private static void Main()

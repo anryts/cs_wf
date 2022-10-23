@@ -5,12 +5,13 @@ namespace GreatProject;
 [Serializable]
 internal class Materials : Item, IPrintable
 {
-    private int capacity; //об'єм 
-    private int weight; // вага
+    private int _capacity; //об'єм 
+    private int _weight; // вага
 
 
     public Materials()
     {
+        
     }
 
 
@@ -24,11 +25,11 @@ internal class Materials : Item, IPrintable
 
     public int Capacity
     {
-        get => capacity;
+        get => _capacity;
         set
         {
             if (value > 0)
-                capacity = value;
+                _capacity = value;
             else
                 throw new CapacityException("Capacity!<0", this);
         }
@@ -36,8 +37,8 @@ internal class Materials : Item, IPrintable
 
     public int Weight
     {
-        get => weight;
-        set => weight = value;
+        get => _weight;
+        set => _weight = value;
     }
 
     string IPrintable.GetData()
@@ -45,13 +46,17 @@ internal class Materials : Item, IPrintable
         return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
     }
 
-
-    public int CompareTo(Materials ex) //порівнюю за ціною
+/// <summary>
+/// порівняння об'єктів за ціною
+/// </summary>
+/// <param name="ex"></param>
+/// <returns> якщо об'єкт у якого був визваний цей метод, більший вертажться true
+/// </returns>
+    public bool CompareTo(Materials ex) 
     {
-        if (price_of_item() > ex.price_of_item())
-            return 1;
-        if (price_of_item() < ex.price_of_item()) return -1;
-        return 0;
+        if (price_of_Materials() > ex.price_of_Materials())
+            return true;
+        return false;
     }
 
     public double price_of_Materials()

@@ -5,7 +5,7 @@ namespace GreatProject;
 
 internal delegate string InformAboutAdd(object ex);
 
-internal class warehouse_for_materials : warehouse
+internal class warehouse_for_materials : Warehouse
 {
     private int _currentNumbersOfProduct;
     public readonly List<Materials> list_of_materials;
@@ -49,7 +49,7 @@ internal class warehouse_for_materials : warehouse
     }
 }
 
-internal class WarehouseForFood : warehouse
+internal class WarehouseForFood : Warehouse
 {
     public readonly List<Food> list_of_food;
 

@@ -3,7 +3,7 @@
 namespace GreatProject;
 
 [Serializable]
-internal class Materials : Item, IPrintable
+public class Materials : Item, IPrintable
 {
     private int _capacity; //об'єм 
     private int _weight; // вага
@@ -65,8 +65,10 @@ internal class Materials : Item, IPrintable
         return Capacity * Weight * 2;
     }
 
+
     public override string Print_Info()
     {
         return $"Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
+        
     }
 }

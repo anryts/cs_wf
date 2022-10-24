@@ -57,7 +57,7 @@ internal class WarehouseForFood : Warehouse
     public WarehouseForFood()
     {
         list_of_food = new List<Food>();
-        var temperatury_in_warehouse = 0;
+        var temperaturyInWarehouse = 0;
     }
 
     public List<Food> ListOfFood
@@ -68,8 +68,8 @@ internal class WarehouseForFood : Warehouse
 
     public int TemperaturyInWarehouse { get; private set; }
 
-    public void Add_to_list_of_food(List<Food> input_list)
+    public void Add_to_list_of_food(List<Food> inputList)
     {
-        foreach (var temp in input_list) list_of_food.Add(temp);
+        foreach (var temp in inputList) list_of_food.Add(temp);
     }
 }

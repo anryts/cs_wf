@@ -34,9 +34,9 @@ public class MaterialsTests
         double exprectedPrice = 2250;
 
         //Act
-        
+
         var result = _sut.price_of_Materials();
-        
+
         //Assert
         Assert.Equal(exprectedPrice, result);
     }
@@ -47,8 +47,8 @@ public class MaterialsTests
     [InlineData(-2)]
     public void MaterialsWrongCapacity_InvalidCapacity_ShouldFailed(int capacity)
     {
-        Assert.Throws<CapacityException>(() => _sut.Capacity= capacity);
+        Assert.Throws<CapacityException>(() => _sut.Capacity = capacity);
     }
-    
+
 }
 

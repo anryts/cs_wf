@@ -6,7 +6,6 @@ namespace GreatProject;
 
 public partial class OurWarehouse : Form
 {
-    //static  warehouse_for_food mini_dream_food = new warehouse_for_food();       
     private string _typeItem;
 
     public OurWarehouse()
@@ -98,16 +97,6 @@ public partial class OurWarehouse : Form
     }
 
 
-    //private void button2_KeyDown(object sender, KeyEventArgs e)
-    // {
-    //     if(e.KeyValue == (char)Keys.Enter)
-    //     {
-    //         button2.PerformClick();
-
-    //     }
-    // }
-
-
     private void copying_to_Chief(Chief someOther)
     {
         Date.ChiefOfWarehouse.NameOfPerson = someOther.NameOfPerson;
@@ -130,7 +119,7 @@ internal static class Date
 
     public static Dictionary<string, DateTime> PropertyForDictionary { get; } = new();
 
-    public static warehouse_for_materials PropertyForWarehouseMaterials { get; } = new();
+    public static WarehouseForMaterials PropertyForWarehouseMaterials { get; } = new();
 
     public static WarehouseForFood PropertyForWarehouse { get; } = new();
 }

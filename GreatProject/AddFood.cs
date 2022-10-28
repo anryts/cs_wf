@@ -58,7 +58,7 @@ public partial class AddFood : Form
         }
         catch (ZeroLenghtException ex)
         {
-            MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value.Name}\n{ex.Message}");
+            MessageBox.Show($"Помилка виникла в об'єкті під назвою:{ex.Value}\n{ex.Message}");
             return;
         }
 

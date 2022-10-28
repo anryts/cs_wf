@@ -4,12 +4,12 @@ namespace GreatProject;
 
 internal class ZeroLenghtException : Exception
 {
-    public ZeroLenghtException(string message, Item temp) : base(message)
+    public ZeroLenghtException(string message, object temp) : base(message)
     {
         Value = temp;
     }
 
-    public Item Value { get; }
+    public object Value { get; }
 }
 
 internal class CapacityException : Exception

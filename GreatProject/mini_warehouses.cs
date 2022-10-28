@@ -5,13 +5,13 @@ namespace GreatProject;
 
 internal delegate string InformAboutAdd(object ex);
 
-internal class warehouse_for_materials : Warehouse
+internal class WarehouseForMaterials : Warehouse
 {
     private int _currentNumbersOfProduct;
     public readonly List<Materials> list_of_materials;
     private int _maxNumberOfProduct;
 
-    public warehouse_for_materials()
+    public WarehouseForMaterials()
     {
         list_of_materials = new List<Materials>();
         PropertyForMaxCout = 5;

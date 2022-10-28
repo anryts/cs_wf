@@ -24,14 +24,7 @@ internal class Person
     public string NameOfPerson
     {
         get => _nameOfPerson;
-        set
-        {
-            if (value.Length != 0)
-            {
-                _nameOfPerson = value;
-            }
-            //throw new ZeroLenghtException("Lenght can not = 0", this);
-        }
+        set => _nameOfPerson = value.Length == 0 ? throw new ZeroLenghtException("Lenght can not = 0", this) : value;
     }
 
     public virtual void Print()

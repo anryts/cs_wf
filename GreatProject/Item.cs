@@ -3,7 +3,7 @@
 namespace GreatProject;
 
 [Serializable]
-internal abstract class Item
+public abstract class Item
 {
     //protected int price;
     protected string name;

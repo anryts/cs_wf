@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Xunit;
-using Xunit.Sdk;
+﻿using Xunit;
 
 namespace GreatProject;
 
@@ -41,10 +37,10 @@ public class MaterialsTests
         Assert.Equal(exprectedPrice, result);
     }
     [Theory]
-    [InlineData(-1)]
-    [InlineData(-5)]
-    [InlineData(-3)]
-    [InlineData(-2)]
+                        [InlineData(-1)]
+                        [InlineData(-5)]
+                        [InlineData(-3)]
+                        [InlineData(-2)]
     public void MaterialsWrongCapacity_InvalidCapacity_ShouldFailed(int capacity)
     {
         Assert.Throws<CapacityException>(() => _sut.Capacity = capacity);

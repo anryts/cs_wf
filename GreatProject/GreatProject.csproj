@@ -55,7 +55,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
@@ -100,8 +102,9 @@
     <Compile Include="ChiefForm.Designer.cs">
       <DependentUpon>ChiefForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class_for_Compare.cs" />
+    <Compile Include="Class_for_compare\Class_for_Compare.cs" />
     <Compile Include="ChiefTransferEventArgs.cs" />
+    <Compile Include="Class_for_compare\Class_for_compareTests.cs" />
     <Compile Include="Class_for_Files.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Materials\Materials.cs" />

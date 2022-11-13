@@ -19,7 +19,7 @@ internal class ChiefTransferEventArgs : EventArgs
 
 internal class TransferChief
 {
-                    public event EventHandler<ChiefTransferEventArgs> ExampleEvent;
+    public event EventHandler<ChiefTransferEventArgs> ExampleEvent;
 
     private void OnMethodExample(ChiefTransferEventArgs e)
     {

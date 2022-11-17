@@ -38,7 +38,16 @@ namespace GreatProject
             //Assert
             Assert.False(result);
         }
-
+        [Fact]
+        public void print_material_info()
+        {
+            // Arrange
+            string str = "Name:Metal Capacity:100  Weight:15 ";
+            // Act
+            var result =_sut1.Print_Info();
+            // Assert
+            Assert.Equal(str, result);
+        }
         //[Fact]
         //public void Compare_food_1biggerthan2_return1()
         //{

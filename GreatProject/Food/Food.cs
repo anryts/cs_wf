@@ -34,7 +34,7 @@ internal class Food : Item, IPrintable
         return $"Food {price_of_item()} {Name} {string.Format("{0:MM/dd/yyyy}", ExpirationDate)}";
     }
 
-    public static bool Fresh_or_not(DateTime value)
+    public bool Fresh_or_not(DateTime value)
     {
         if (value.CompareTo(DateTime.Now) >= 0) return true;
         return false;
@@ -50,6 +50,6 @@ internal class Food : Item, IPrintable
     public override string Print_Info()
     {
         return
-            $"Price:{price_of_item()}\nName:{Name}\nExperation Date:{string.Format("{0:MM/dd/yyyy}", ExpirationDate)}";
+            $"Price:{price_of_item()}\nName:{Name}\nExpiration Date:{string.Format("{0:MM/dd/yyyy}", ExpirationDate)}";
     }
 }

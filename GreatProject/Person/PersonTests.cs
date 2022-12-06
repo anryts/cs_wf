@@ -2,31 +2,40 @@
 using System.Windows.Forms;
 using Xunit;
 
-namespace GreatProject;
-
-public class PersonTests
+namespace GreatProject
 {
-	[Fact]
-	public void Name_Tester_ReturnTester()
-    {
-		//Arrange
-		var sut = new Person("Тестер");
-		string expected = "Тестер";
 
-		//Act
-		string actual = sut.NameOfPerson;
+	public class PersonTests
+	{
+		private readonly Person _sut1;
+		private readonly Person _sut2;
 
-		//Assert
-		Assert.Equal(expected, actual);
-	}
+		public PersonTests()
+		{
+			_sut1 = new Person("Тестер");
+			_sut2 = new Person("");
+		}
 
-	[Fact]
-	public void CreatePerson_EmptyName_ThrowArgumentNullException()
-    {
-		//Arrange
-		var sut = new Person("");
+		[Fact]
+		public void Name_Tester_ReturnTester()
+		{
+			//Arrange
+			string expected = "Тестер";
 
-		//Assert
-		Assert.Throw<ZeroLenghtException>(() => sut._nameOfPerson = "");
+			//Act
+			string actual = _sut1.NameOfPerson;
+
+			//Assert
+			Assert.Equal(expected, actual);
+		}
+
+		[Fact]
+		public void CreatePerson_EmptyName_ThrowArgumentNullException()
+		{
+			//Arrange
+
+			//Assert
+			Assert.Throws<ZeroLenghtException>(() => _sut2.NameOfPerson = "");
+		}
 	}
 }

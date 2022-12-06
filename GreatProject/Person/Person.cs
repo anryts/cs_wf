@@ -1,35 +1,36 @@
 ﻿using System;
 
-namespace GreatProject;
-
-internal class Person
+namespace GreatProject
 {
-    private readonly string _idPerson;
-
-    private readonly Random _rd = new();
-    private string _nameOfPerson;
-
-    protected Person()
+    internal class Person
     {
-        _nameOfPerson = "unknown";
-        _idPerson = Convert.ToString(_rd.Next(100000, 999999));
-    }
+        private readonly string _idPerson;
 
-    private Person(string name)
-    {
-        NameOfPerson = name;
-        _idPerson = Convert.ToString(_rd.Next(100000, 999999));
-    }
+        private readonly Random _rd = new();
+        private string _nameOfPerson;
 
-    public string NameOfPerson
-    {
-        get => _nameOfPerson;
-        set => _nameOfPerson = value.Length == 0 ? throw new ZeroLenghtException("Lenght can not = 0", this) : value;
-    }
+        protected Person()
+        {
+            _nameOfPerson = "unknown";
+            _idPerson = Convert.ToString(_rd.Next(100000, 999999));
+        }
 
-    public virtual void Print()
-    {
-        Console.WriteLine($"Ім'я:{NameOfPerson}\n" +
-                          $"ID:{_idPerson}");
+        public Person(string name)
+        {
+            NameOfPerson = name;
+            _idPerson = Convert.ToString(_rd.Next(100000, 999999));
+        }
+
+        public string NameOfPerson
+        {
+            get => _nameOfPerson;
+            set => _nameOfPerson = value.Length == 0 ? throw new ZeroLenghtException("Lenght can not = 0", this) : value;
+        }
+
+        public virtual void Print()
+        {
+            Console.WriteLine($"Ім'я:{NameOfPerson}\n" +
+                              $"ID:{_idPerson}");
+        }
     }
 }

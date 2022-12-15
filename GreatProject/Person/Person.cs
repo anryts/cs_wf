@@ -2,7 +2,7 @@
 
 namespace GreatProject
 {
-    internal class Person
+    public class Person
     {
         private readonly string _idPerson;
 

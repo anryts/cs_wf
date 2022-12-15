@@ -2,7 +2,7 @@
 
 namespace GreatProject;
 
-internal class ZeroLenghtException : Exception
+public class ZeroLenghtException : Exception
 {
     public ZeroLenghtException(string message, object temp) : base(message)
     {
@@ -12,7 +12,7 @@ internal class ZeroLenghtException : Exception
     public object Value { get; }
 }
 
-internal class CapacityException : Exception
+public class CapacityException : Exception
 {
     public CapacityException(string message, Materials value) : base(message)
     {

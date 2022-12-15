@@ -104,7 +104,6 @@
     </Compile>
     <Compile Include="Class_for_compare\Class_for_Compare.cs" />
     <Compile Include="ChiefTransferEventArgs.cs" />
-    <Compile Include="Class_for_compare\Class_for_compareTests.cs" />
     <Compile Include="Class_for_Files.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Materials\Materials.cs" />
@@ -112,7 +111,6 @@
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Person\Person.cs" />
-    <Compile Include="Person\PersonTests.cs" />
     <Compile Include="Registation_Chief.cs">
       <SubType>Form</SubType>
     </Compile>

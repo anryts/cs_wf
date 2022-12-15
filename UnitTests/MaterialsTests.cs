@@ -46,4 +46,17 @@ public class MaterialsTests
         Assert.Throws<CapacityException>(() => _sut.Capacity = capacity);
     }
 
+    [Fact]
+    public void GetData_Nothing_ShouldReturnString()
+    {
+        //Arrange
+        string expected = "Metal, 100, 15";
+
+        //Act
+        var result = _sut.GetData();
+
+        //Assert
+        Assert.Equal(expected, result);
+    }
+
 }

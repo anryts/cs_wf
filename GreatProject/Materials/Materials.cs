@@ -40,7 +40,7 @@ public class Materials : Item, IPrintable
         set => _weight = value;
     }
 
-    string IPrintable.GetData()
+    public string GetData()
     {
         return $"Materials Name:{Name} Capacity:{Capacity}  Weight:{Weight} ";
     }

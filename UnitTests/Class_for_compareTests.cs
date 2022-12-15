@@ -1,5 +1,4 @@
 using System;
-using System.Windows.Forms;
 using Xunit;
 
 namespace GreatProject
@@ -39,26 +38,6 @@ namespace GreatProject
             Assert.False(result);
         }
 
-        //[Fact]
-        //public void Compare_food_1biggerthan2_return1()
-        //{
-        //    DateTime exp1 = new DateTime(2015, 7, 20, 18, 30, 25);
-        //    DateTime exp2 = new DateTime(2010, 1, 1, 0, 0, 0);
-        //    //Arrange
-        //    var result = false;
-        //    var item1 = new Food("apple", exp1);            
-        //    var item2 = new Food("potato", exp2);
-        //    //Act
-        //    if (item1.price_of_item() < item2.price_of_item())
-        //    {
-        //        result = true;
-        //    }
-        //    else
-        //    {
-        //        result = false;
-        //    }
-        //    //Assert
-        //    Assert.True(result);
-        //}
+        
     }
 }

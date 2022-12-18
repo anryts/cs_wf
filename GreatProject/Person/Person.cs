@@ -9,7 +9,7 @@ namespace GreatProject
         private readonly Random _rd = new();
         private string _nameOfPerson;
 
-        protected Person()
+        public Person()
         {
             _nameOfPerson = "unknown";
             _idPerson = Convert.ToString(_rd.Next(100000, 999999));

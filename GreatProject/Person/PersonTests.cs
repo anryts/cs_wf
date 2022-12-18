@@ -9,12 +9,14 @@ namespace GreatProject
 	{
 		private readonly Person _sut1;
 		private readonly Person _sut2;
+		private readonly Person _sut3;
 
 		public PersonTests()
 		{
 			_sut1 = new Person("Тестер");
 			_sut2 = new Person("");
-		}
+            _sut3 = new Person();
+        }
 
 		[Fact]
 		public void Name_Tester_ReturnTester()
@@ -37,5 +39,18 @@ namespace GreatProject
 			//Assert
 			Assert.Throws<ZeroLenghtException>(() => _sut2.NameOfPerson = "");
 		}
-	}
+
+        [Fact]
+        public void Name_Tester_ReturnUnknown()
+        {
+            //Arrange
+            string expected = "unknown";
+
+            //Act
+            string actual = _sut3.NameOfPerson;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+    }
 }

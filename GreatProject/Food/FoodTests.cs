@@ -41,6 +41,23 @@ public class FoodTests
 
     }
 
+    [Fact]
+    public void SetterExpirationDate_Nothing_ThrowsExcaption()
+    {
+        Assert.Throws<ExpirationDateException>(() => new Food("Apple", new DateTime(2005, 5, 12)));
+    }
+
+    [Fact]
+    public void SetterExpirationDate_ExpirationDate_ReturnsBool()
+    {
+        var food = new Food("Watermelon", DateTime.Today);
+
+        food.ExpirationDate = new DateTime(2023, 06, 06);
+
+        var expectedDateTime = new DateTime(2023, 06, 06);
+
+        Assert.Equal(expectedDateTime, food.ExpirationDate);
+    }
 
     [Fact]
     public void CheckIfFoodIsFresh_ReturnsTrue()
